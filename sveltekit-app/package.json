@@ -14,7 +14,8 @@
 		"@sanity/image-url": "^1.0.2",
 		"@sanity/svelte-loader": "^1.11.1",
 		"@sanity/visual-editing": "^2.0.0",
-		"groq": "^3.33.0"
+		"groq": "^3.33.0",
+		"lucide-svelte": "^0.553.0"
 	},
 	"devDependencies": {
 		"@portabletext/svelte": "^2.1.12",
