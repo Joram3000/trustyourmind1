@@ -3,8 +3,8 @@
 	import { page } from '$app/stores';
 	import LiveMode from '../components/LiveMode.svelte';
 	import { onMount } from 'svelte';
-	import Footer from '../components/Footer.svelte';
 	import type { ContactInfo } from '$lib/sanity/queries';
+	import Footer from '../components/Footer.svelte';
 	let outlineEnabled = true;
 
 	export let data: { preview: boolean; contactInfo: ContactInfo | null };
@@ -67,7 +67,7 @@
 
 	.header {
 		display: flex;
-		padding: 0 var(--space-1);
+		padding: 0 4px;
 		border-bottom: 1px solid #ced2d9;
 
 		z-index: 10;
@@ -78,20 +78,9 @@
 		top: 0;
 	}
 
-	.header .header__title {
-		font-weight: 800;
-		font-size: var(--font-size-3);
-		line-height: var(--line-height-1);
-		padding-left: var(--space-2);
-		margin: var(--space-3) 0;
-		text-decoration: none;
-		color: var(--black);
-	}
-
-	@media (min-width: 575px) {
+	@media (min-width: 768px) {
 		.container {
-			max-width: var(--max-width-1);
-			padding: 0 var(--space-4);
+			/* max-width: var(--max-width-1); */
 		}
 
 		main {
@@ -101,14 +90,14 @@
 		.header {
 			position: unset;
 			border-bottom: none;
-			margin: var(--space-3) 0;
-			padding: var(--space-2) 0;
+			margin: 12px 0;
+			padding: 8px 0;
 			background: unset;
 		}
 
 		.header .header__title {
-			margin: var(--space-3) 0 var(--space-2);
-			font-size: var(--font-size-5);
+			margin: 12px 0 8px;
+			font-size: 20px;
 		}
 	}
 
