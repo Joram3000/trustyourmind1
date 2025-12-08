@@ -20,6 +20,9 @@ importers:
 
   studio:
     dependencies:
+      '@sanity/icons':
+        specifier: ^3.7.4
+        version: 3.7.4(react@18.3.1)
       '@sanity/vision':
         specifier: ^3.66.0
         version: 3.99.0(@babel/runtime@7.28.4)(@codemirror/lint@6.9.2)(@codemirror/theme-one-dark@6.1.3)(codemirror@6.0.2)(react-dom@18.3.1)(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.19)
@@ -35,6 +38,9 @@ importers:
       sanity:
         specifier: ^3.66.0
         version: 3.99.0(@types/node@18.19.130)(@types/react@18.3.27)(postcss@8.5.6)(react-dom@18.3.1)(react@18.3.1)(styled-components@6.1.19)(typescript@5.9.3)
+      sanity-plugin-singleton-management:
+        specifier: ^1.0.4
+        version: 1.0.4(react-dom@18.3.1)(react@18.3.1)(sanity@3.99.0)
       styled-components:
         specifier: ^6.1.8
         version: 6.1.19(react-dom@18.3.1)(react@18.3.1)
@@ -3225,6 +3231,16 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
+    dev: false
+
+  /@sanity/incompatible-plugin@1.0.5(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-9JGAacbElUPy9Chghd+sllIiM3jAcraZdD65bWYWUVKkghOsf1L/+jFLz1rcAuvrA9o2s7Y+T75BNcXuLwRcvw==}
+    peerDependencies:
+      react: ^16.9 || ^17 || ^18 || ^19
+      react-dom: ^16.9 || ^17 || ^18 || ^19
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
     dev: false
 
   /@sanity/insert-menu@1.1.13(@sanity/types@3.99.0)(react-dom@18.3.1)(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.19):
@@ -9136,6 +9152,21 @@ packages:
 
   /safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
+    dev: false
+
+  /sanity-plugin-singleton-management@1.0.4(react-dom@18.3.1)(react@18.3.1)(sanity@3.99.0):
+    resolution: {integrity: sha512-4ebCXYBHspsot24Ro6yGS6lRJxQq5yOYvhj4ZQEc2+lJtVH7kWAZjxYrdIGP3wX/JB53us+sDSfpyl/S7dFYWg==}
+    engines: {node: ^20.19.5 || ^22.21.1 || >= 24.10.0}
+    peerDependencies:
+      react: ^18 || ^19
+      sanity: ^3 || ^4
+    dependencies:
+      '@sanity/icons': 3.7.4(react@18.3.1)
+      '@sanity/incompatible-plugin': 1.0.5(react-dom@18.3.1)(react@18.3.1)
+      react: 18.3.1
+      sanity: 3.99.0(@types/node@18.19.130)(@types/react@18.3.27)(postcss@8.5.6)(react-dom@18.3.1)(react@18.3.1)(styled-components@6.1.19)(typescript@5.9.3)
+    transitivePeerDependencies:
+      - react-dom
     dev: false
 
   /sanity@3.99.0(@types/node@18.19.130)(@types/react@18.3.27)(postcss@8.5.6)(react-dom@18.3.1)(react@18.3.1)(styled-components@6.1.19)(typescript@5.9.3):
