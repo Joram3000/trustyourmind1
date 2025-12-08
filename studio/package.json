@@ -15,14 +15,14 @@
     "sanity"
   ],
   "dependencies": {
-  "@sanity/icons": "^3.7.4",
-  "@sanity/vision": "^4.20.3",
-  "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@sanity/icons": "^3.7.4",
+    "@sanity/vision": "^4.20.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "react-is": "^18.2.0",
-  "sanity": "^4.20.3",
+    "sanity": "^4.20.3",
     "sanity-plugin-singleton-management": "^1.0.4",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^3.0.1",

@@ -17,7 +17,7 @@
 		"groq": "^3.33.0"
 	},
 	"devDependencies": {
-		"@portabletext/svelte": "^2.1.11",
+		"@portabletext/svelte": "^2.1.12",
 		"@portabletext/types": "^2.0.13",
 		"@sanity/types": "^3.52.4",
 		"@sveltejs/adapter-auto": "^3.2.2",
@@ -26,7 +26,7 @@
 		"@typescript-eslint/eslint-plugin": "^6.21.0",
 		"@typescript-eslint/parser": "^6.21.0",
 		"autoprefixer": "^10.4.20",
-	"eslint": "^8.57.0",
+		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.43.0",
 		"postcss": "^8.4.41",
