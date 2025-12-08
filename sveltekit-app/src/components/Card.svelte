@@ -98,14 +98,14 @@
 		border-bottom-right-radius: 3px;
 	}
 
-	@media (min-width: 575px) {
+	@media (min-width: 768px) {
 		.card {
 			border: 1px solid #ced2d9;
 			border-bottom: none;
 		}
 
 		.card .card__title {
-			margin-top: var(--space-4);
+			margin-top: 12px;
 		}
 
 		.card:last-child {
