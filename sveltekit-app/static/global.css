@@ -62,3 +62,7 @@ html {
 body {
 	margin: 0;
 }
+
+.outline-enabled * {
+	outline: 1px dotted rgb(239, 4, 180);
+}
