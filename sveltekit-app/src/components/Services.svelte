@@ -1,57 +1,34 @@
 <script lang="ts">
-	import { Users, Navigation, Shield, Sparkles } from 'lucide-svelte';
+	import type { HomePage } from '$lib/sanity/queries';
+	import Icon from './Icon.svelte';
+
+	export let homePage: HomePage;
 </script>
 
 <div class="container">
 	<div class="inner">
-		<h2>Our servives</h2>
+		<h2>{homePage.services.headline}</h2>
 		<p>
-			Comprehensive mental health services designed to support your well-being and foster lasting
-			change
+			{homePage.services.subheadline}
 		</p>
 		<ul>
-			<li class="card">
-				<Users color="var(--red)" />
-
-				<h3>Individual Therapy</h3>
-				<p>
-					One-on-one sessions tailored to your specific needs, utilizing cognitive-behavioral
-					therapy, psychodynamic approaches, and mindfulness-based techniques.
-				</p>
-			</li>
-			<li class="card">
-				<Navigation color="var(--red)" />
-				<h3>Life Transitions</h3>
-				<p>
-					Support through major life changes including career shifts, relationship changes, loss,
-					and identity exploration.
-				</p>
-			</li>
-			<li class="card">
-				<Shield color="var(--red)" />
-				<h3>Anxiety & Depression</h3>
-				<p>
-					Evidence-based treatment for managing anxiety disorders, depression, and related mood
-					concerns with compassionate, practical strategies.
-				</p>
-			</li>
-			<li class="card">
-				<Sparkles color="var(--red)" />
-				<h3>Personal Growth</h3>
-				<p>
-					Guidance for self-discovery, building resilience, improving relationships, and achieving
-					your full potential.
-				</p>
-			</li>
+			{#each homePage.services.cards as card}
+				<li class="card">
+					<Icon name={card.icon} color="var(--red)" />
+					<h3>{card.title}</h3>
+					<p>{card.content}</p>
+				</li>
+			{/each}
 		</ul>
 	</div>
 </div>
 
 <style>
 	.container {
-		background-color: var(--darkbrown);
 		display: flex;
+		background-color: var(--darkbrown);
 		justify-content: center;
+		padding: 1rem;
 	}
 
 	.inner {
@@ -71,11 +48,10 @@
 	}
 
 	.card {
+		padding: 1rem;
 		background: rgba(255, 255, 255, 0.04);
-		border-radius: 0.75rem;
-		padding: 1.5rem;
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		gap: 1rem;
 	}
 </style>

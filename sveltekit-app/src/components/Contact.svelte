@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
+	export let form;
 </script>
 
 <div class="container">
@@ -15,11 +17,27 @@
 
 		<div class="contact-form">
 			<h3>Contact Form</h3>
-
-			<p>your name</p>
-			<p>emailaddress</p>
-			<p>phone number</p>
-			<button>submit</button>
+			{#if form?.success}
+				<p>Successfully submitted the form!</p>
+			{:else}
+				<form method="POST" action="?/contactForm" use:enhance>
+					<div>
+						{#if form?.errors?.name}<p class="error">{form.errors.name}</p>{/if}
+						<label>
+							Name
+							<input name="name" type="text" value={form?.values?.name ?? ''} />
+						</label>
+					</div>
+					<div>
+						{#if form?.errors?.email}<p class="error">{form.errors.email}</p>{/if}
+						<label>
+							Email
+							<input name="email" type="email" value={form?.values?.email ?? ''} />
+						</label>
+					</div>
+					<button type="submit">Submit</button>
+				</form>
+			{/if}
 		</div>
 	</div>
 </div>
@@ -43,7 +61,31 @@
 	.contact-form {
 		display: flex;
 		flex-direction: column;
+		gap: 1rem;
 		width: 100%;
-		border: 1px dashed orange;
+	}
+
+	.contact-form form {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.contact-form label {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 1rem;
+		flex: 1;
+	}
+
+	.contact-form input {
+		width: 100%;
+		flex: 2;
+	}
+
+	.error {
+		color: red;
+		font-style: italic;
 	}
 </style>

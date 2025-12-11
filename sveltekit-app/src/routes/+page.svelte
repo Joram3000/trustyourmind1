@@ -6,18 +6,20 @@
 	import Contact from '../components/Contact.svelte';
 	import Hero from '../components/Hero.svelte';
 	import Usp from '../components/Usp.svelte';
+
 	export let data: PageData;
+	export let form;
 	const q = useQuery(data);
 
-	// $: ({ data: posts } = $q);
+	$: ({ data: homePage } = $q);
 </script>
 
 <section>
-	<Hero />
+	<Hero {homePage} />
 
-	<Usp />
+	<Usp {homePage} />
 
-	<Services />
+	<Services {homePage} />
 
-	<Contact />
+	<Contact {form} />
 </section>
