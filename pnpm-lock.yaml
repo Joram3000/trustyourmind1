@@ -38,6 +38,9 @@ importers:
       sanity:
         specifier: ^4.20.3
         version: 4.20.3(@portabletext/sanity-bridge@1.2.10)(@types/node@18.19.130)(@types/react@18.3.27)(postcss@8.5.6)(react-dom@19.2.0)(react@19.2.0)(styled-components@6.1.19)(typescript@5.9.3)
+      sanity-plugin-lucide-icon-picker:
+        specifier: ^1.0.3
+        version: 1.0.3(@sanity/icons@3.7.4)(@sanity/ui@2.16.22)(react@19.2.0)(sanity@4.20.3)
       sanity-plugin-singleton-management:
         specifier: ^1.0.4
         version: 1.0.4(react-dom@19.2.0)(react@19.2.0)(sanity@4.20.3)
@@ -84,6 +87,9 @@ importers:
       groq:
         specifier: ^3.33.0
         version: 3.99.0
+      lucide-svelte:
+        specifier: ^0.553.0
+        version: 0.553.0(svelte@4.2.20)
     devDependencies:
       '@portabletext/svelte':
         specifier: ^2.1.12
@@ -8009,6 +8015,22 @@ packages:
       yallist: 4.0.0
     dev: false
 
+  /lucide-react@0.532.0(react@19.2.0):
+    resolution: {integrity: sha512-HwmXOIZwuZ21wryFq0ZrwkjAMxI77+jLxLdNzWCiUa/Kf5ozkTFCWT6C1/yapP68uKgj8wlxxqnNCH1xo9NEpg==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    dependencies:
+      react: 19.2.0
+    dev: false
+
+  /lucide-svelte@0.553.0(svelte@4.2.20):
+    resolution: {integrity: sha512-pOqzFX+RfcNyvjF0+nGVnSmprd+4NQ6mvpLOLEmhTyZGOad8+OtCl65822E7Rx9qE7rfKw84ODKI2v318JZ/7g==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
+    dependencies:
+      svelte: 4.2.20
+    dev: false
+
   /magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
     dependencies:
@@ -9531,6 +9553,22 @@ packages:
 
   /safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
+
+  /sanity-plugin-lucide-icon-picker@1.0.3(@sanity/icons@3.7.4)(@sanity/ui@2.16.22)(react@19.2.0)(sanity@4.20.3):
+    resolution: {integrity: sha512-3KS2pE4pCJ/LbUVw0iA2cCg/0KjMSnbEei9VJW3blAtwQRgionRgpytDcCJ1pXMho9gZc6Aqa91Jpjn3TllccA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@sanity/icons': ^3.7.0
+      '@sanity/ui': ^2.0.0
+      react: ^18 || ^19
+      sanity: ^3
+    dependencies:
+      '@sanity/icons': 3.7.4(react@19.2.0)
+      '@sanity/ui': 2.16.22(react-dom@19.2.0)(react-is@18.3.1)(react@19.2.0)(styled-components@6.1.19)
+      lucide-react: 0.532.0(react@19.2.0)
+      react: 19.2.0
+      sanity: 4.20.3(@portabletext/sanity-bridge@1.2.10)(@types/node@18.19.130)(@types/react@18.3.27)(postcss@8.5.6)(react-dom@19.2.0)(react@19.2.0)(styled-components@6.1.19)(typescript@5.9.3)
+    dev: false
 
   /sanity-plugin-singleton-management@1.0.4(react-dom@19.2.0)(react@19.2.0)(sanity@4.20.3):
     resolution: {integrity: sha512-4ebCXYBHspsot24Ro6yGS6lRJxQq5yOYvhj4ZQEc2+lJtVH7kWAZjxYrdIGP3wX/JB53us+sDSfpyl/S7dFYWg==}

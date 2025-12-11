@@ -1,21 +1,25 @@
 <script lang="ts">
 	import { useQuery } from '@sanity/svelte-loader';
-	import Card from '../components/Card.svelte';
-	import Welcome from '../components/Welcome.svelte';
 	import type { PageData } from './$types';
 
+	import Services from '../components/Services.svelte';
+	import Contact from '../components/Contact.svelte';
+	import Hero from '../components/Hero.svelte';
+	import Usp from '../components/Usp.svelte';
+
 	export let data: PageData;
+	export let form;
 	const q = useQuery(data);
 
-	$: ({ data: posts } = $q);
+	$: ({ data: homePage } = $q);
 </script>
 
 <section>
-	{#if posts.length}
-		{#each posts as post}
-			<Card {post} />
-		{/each}
-	{:else}
-		<Welcome />
-	{/if}
+	<Hero {homePage} />
+
+	<Usp {homePage} />
+
+	<Services {homePage} />
+
+	<Contact {form} />
 </section>

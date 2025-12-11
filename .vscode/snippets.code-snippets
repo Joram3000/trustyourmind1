@@ -1,0 +1,27 @@
+{
+  "Svelte TS component": {
+    "prefix": "svelte-ts",
+    "body": [
+      "<script lang=\"ts\">",
+
+      "</script>",
+      "",
+      "<div class=\"${8:container}\">",
+      "  ${9:<!-- content -->}",
+      "  <slot />",
+      "</div>",
+      "",
+      "<style>",
+      "  .${8:container} {",
+      "    border: 1px solid var(--border-color, #${10:ff00ff});",
+      "  }",
+      "</style>",
+    ],
+    "description": "Svelte + TypeScript component template met props, onMount en event dispatcher (prefix: svelte-ts)",
+  },
+  "Random border color": {
+    "prefix": "rabo",
+    "body": ["border: 1px solid purple;"],
+    "description": "Insert border with purple color (prefix: rabo)",
+  },
+}
