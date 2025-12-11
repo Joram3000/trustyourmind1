@@ -1,15 +1,17 @@
 <script lang="ts">
+	import type { HomePage } from '$lib/sanity/queries';
+
+	export let homePage: HomePage;
 </script>
 
 <div class="container">
 	<div class="inner">
-		<h1>Trust Your Mind</h1>
-		<p>Master in Clinical Psychology</p>
+		<h1>{homePage.hero.headline}</h1>
+		<p>{homePage.hero.subheadline}</p>
 		<p>
-			Professional, compassionate care in a space designed for healing and growth. Evidence-based
-			therapeutic approaches tailored to your unique journey.
+			{homePage.hero.excerpt}
 		</p>
-		<button>Schedule a Session</button>
+		<button>{homePage.hero.callToAction.label}</button>
 	</div>
 </div>
 
@@ -29,9 +31,8 @@
 		align-items: center;
 		text-align: center;
 		gap: 2rem;
-	}
-
-	.inner p {
-		max-width: 700px;
+		max-width: var(--max-width-1);
+		padding: 1rem;
+		/* margin: 1rem; */
 	}
 </style>
