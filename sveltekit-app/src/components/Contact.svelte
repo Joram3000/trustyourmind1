@@ -4,40 +4,42 @@
 </script>
 
 <div class="container">
-	<h2>Get in Touch</h2>
-	<p>Taking the first step can feel daunting. We're here to make it easier.</p>
-
 	<div class="inner">
-		<div class="contact-info">
-			<h3>Contact Information</h3>
-			<p>Email: contact@trustyourmind.com</p>
-			<p>Phone: +123 456 7890</p>
-			<p>Address: 123 Mindful Lane, Wellness City, Country</p>
-		</div>
+		<h2>Get in Touch</h2>
+		<p>Taking the first step can feel daunting. We're here to make it easier.</p>
 
-		<div class="contact-form">
-			<h3>Contact Form</h3>
-			{#if form?.success}
-				<p>Successfully submitted the form!</p>
-			{:else}
-				<form method="POST" action="?/contactForm" use:enhance>
-					<div>
-						{#if form?.errors?.name}<p class="error">{form.errors.name}</p>{/if}
-						<label>
-							Name
-							<input name="name" type="text" value={form?.values?.name ?? ''} />
-						</label>
-					</div>
-					<div>
-						{#if form?.errors?.email}<p class="error">{form.errors.email}</p>{/if}
-						<label>
-							Email
-							<input name="email" type="email" value={form?.values?.email ?? ''} />
-						</label>
-					</div>
-					<button type="submit">Submit</button>
-				</form>
-			{/if}
+		<div class="content">
+			<div class="contact-info">
+				<h3>Contact Information</h3>
+				<p>Email: contact@trustyourmind.com</p>
+				<p>Phone: +123 456 7890</p>
+				<p>Address: 123 Mindful Lane, Wellness City, Country</p>
+			</div>
+
+			<div class="contact-form">
+				<h3>Contact Form</h3>
+				{#if form?.success}
+					<p>Successfully submitted the form!</p>
+				{:else}
+					<form method="POST" action="?/contactForm" use:enhance>
+						<div>
+							{#if form?.errors?.name}<p class="error">{form.errors.name}</p>{/if}
+							<label>
+								Name
+								<input name="name" type="text" value={form?.values?.name ?? ''} />
+							</label>
+						</div>
+						<div>
+							{#if form?.errors?.email}<p class="error">{form.errors.email}</p>{/if}
+							<label>
+								Email
+								<input name="email" type="email" value={form?.values?.email ?? ''} />
+							</label>
+						</div>
+						<button type="submit">Submit</button>
+					</form>
+				{/if}
+			</div>
 		</div>
 	</div>
 </div>
@@ -48,13 +50,23 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		padding: 1rem;
 	}
 
 	.inner {
+		max-width: var(--max-width-1);
+		width: 100%;
+	}
+
+	.inner h2 {
+		width: 100%;
+		text-align: center;
+	}
+
+	.content {
 		display: flex;
 		flex-direction: row;
 		width: 100%;
-		max-width: var(--max-width-1);
 	}
 
 	.contact-info,

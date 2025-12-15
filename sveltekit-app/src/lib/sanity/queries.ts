@@ -10,6 +10,8 @@ export const contactInfoQuery = groq`*[_type == "contact"][0]`;
 
 export const homePageQuery = groq`*[_type == "homePage"][0]`;
 
+export const aboutPageQuery = groq`*[_type == "aboutPage"][0]`;
+
 export interface Post {
 	_type: 'post';
 	_createdAt: string;
@@ -30,24 +32,26 @@ export interface ContactInfo {
 	kvk?: string;
 }
 
+export interface AboutPage {
+	_type: 'aboutPage';
+	title?: string;
+	sections: Sections;
+}
+
 export interface HomePage {
 	_type: 'homePage';
-	hero: {
-		headline: string;
-		subheadline: string;
-		excerpt: string;
-		callToAction: Button;
-		backgroundImage?: ImageAsset;
-	};
+	hero: Hero;
 	usp: {
 		title: string;
+		subheadline?: string;
 		cards: Card[];
 		content: PortableTextBlock[];
 	};
 	services: {
 		headline: string;
-		subheadline: string;
+		subheadline?: string;
 		cards: Card[];
+		content?: PortableTextBlock[];
 	};
 }
 
@@ -60,4 +64,33 @@ export interface Card {
 	icon: string;
 	title: string;
 	content: string;
+}
+
+export type Sections = (Hero | TextBlock | Gallery)[];
+
+export interface Hero {
+	_type: 'hero';
+	_key: string;
+	headline: string;
+	subheadline?: string;
+	excerpt?: string;
+	callToAction?: Button;
+	backgroundImage?: ImageAsset;
+}
+
+export interface Gallery {
+	_type: 'imageGallery';
+	_key: string;
+	images: {
+		image: ImageAsset;
+		_key: string;
+		alt: string;
+	}[];
+}
+
+export interface TextBlock {
+	_type: 'textBlock';
+	_key: string;
+	title?: string;
+	body: PortableTextBlock[];
 }

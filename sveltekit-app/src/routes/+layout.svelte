@@ -39,9 +39,11 @@
 {/if}
 
 <div class="container">
-	<!-- <header class="header">
+	<header class="header">
 		<a class="header__title" href="/">Home</a>
-	</header> -->
+		<a class="header__title" href="/about">About</a>
+	</header>
+
 	<main>
 		<slot />
 	</main>
@@ -59,28 +61,37 @@
 <style>
 	.container {
 		margin: 0 auto;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
 	}
 
 	main {
-		/* margin-top: 45px; */
+		margin-top: var(--header-height);
+		flex: 1;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.header {
 		display: flex;
-		padding: 0 4px;
-		border-bottom: 1px solid #ced2d9;
+		/* padding-left: 0 1rem; */
+		background-color: darkblue;
 
 		z-index: 10;
-		background: var(--white);
 		position: fixed;
 		left: 0;
 		right: 0;
 		top: 0;
+		height: var(--header-height);
+		align-items: center;
+		gap: 1rem;
+		margin: 0;
+		padding: 0rem 1rem;
 	}
 
 	@media (min-width: 768px) {
 		.container {
-			/* max-width: var(--max-width-1); */
 		}
 
 		main {
@@ -90,15 +101,15 @@
 		.header {
 			position: unset;
 			border-bottom: none;
-			margin: 12px 0;
-			padding: 8px 0;
+			/* margin: 12px 0; */
+			/* padding: 8px 0; */
 			background: unset;
 		}
 
-		.header .header__title {
-			margin: 12px 0 8px;
-			font-size: 20px;
-		}
+		/* .header .header__title { */
+		/* margin: 12px 0 8px; */
+		/* font-size: 20px; */
+		/* } */
 	}
 
 	.preview-toggle {

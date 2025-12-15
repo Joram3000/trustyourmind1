@@ -20,10 +20,13 @@
 		align-items: center;
 		justify-content: center;
 		margin: 0 auto;
+		width: 100%;
 	}
 
 	.inner {
 		max-width: var(--max-width-1);
+		padding: 1rem;
+		width: 100%;
 	}
 
 	@media (min-width: 768px) {
