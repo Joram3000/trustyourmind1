@@ -35,7 +35,6 @@
 		max-width: var(--max-width-1);
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
 	}
 
 	.inner h2 {

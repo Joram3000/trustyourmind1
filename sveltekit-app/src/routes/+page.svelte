@@ -15,7 +15,7 @@
 </script>
 
 <section>
-	<Hero {homePage} />
+	<Hero data={homePage.hero} />
 
 	<Usp {homePage} />
 

@@ -42,8 +42,8 @@
 	.inner ul {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 1.5rem;
-		padding: 1.5rem 0;
+		gap: 1rem;
+		padding: 1rem 0;
 		list-style: none;
 	}
 
