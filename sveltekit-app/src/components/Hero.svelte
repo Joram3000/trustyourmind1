@@ -8,11 +8,13 @@
 	<div class="inner">
 		<h1>{data.headline}</h1>
 
-		{#if data.subheadline}<p>{data.subheadline}</p>{/if}
+		{#if data.subheadline}<p class="subheadline">{data.subheadline}</p>{/if}
 
-		{#if data.excerpt}<p>
+		{#if data.excerpt}
+			<p class="excerpt">
 				{data.excerpt}
 			</p>{/if}
+
 		{#if data.callToAction}<button>{data.callToAction.label}</button>{/if}
 	</div>
 </div>
@@ -32,8 +34,18 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		gap: 2rem;
+		gap: 1rem;
 		max-width: var(--max-width-1);
 		padding: 1rem;
+	}
+
+	.subheadline {
+		font-size: 1.5rem;
+		font-style: italic;
+	}
+
+	.excerpt {
+		font-size: 1.25rem;
+		color: var(--muted-foreground);
 	}
 </style>

@@ -7,7 +7,7 @@
 
 <div class="container">
 	<div class="inner">
-		{#if data.title}<h1>{data.title}</h1>{/if}
+		{#if data.title}<h2>{data.title}</h2>{/if}
 
 		<PortableText components={{}} value={data.body} />
 	</div>

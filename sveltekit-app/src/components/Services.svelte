@@ -14,7 +14,7 @@
 		<ul>
 			{#each homePage.services.cards as card}
 				<li class="card">
-					<Icon name={card.icon} color="var(--red)" />
+					<Icon name={card.icon} color="var(--red)" size="2rem" />
 					<h3>{card.title}</h3>
 					<p>{card.content}</p>
 				</li>
@@ -33,10 +33,11 @@
 
 	.inner {
 		max-width: var(--max-width-1);
+		text-align: center;
 	}
 
-	.inner h2 {
-		text-align: center;
+	.inner p {
+		color: var(--muted-foreground);
 	}
 
 	.inner ul {
@@ -45,6 +46,7 @@
 		gap: 1rem;
 		padding: 1rem 0;
 		list-style: none;
+		text-align: left;
 	}
 
 	.card {
