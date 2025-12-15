@@ -1,16 +1,16 @@
 :root {
 	--font-family-sans: Inter;
 	--font-family-serif: PT Serif;
-	--font-family-mono: IBM Plex Mono;
+	--font-family-display: 'Playfair Display', var(--font-family-serif);
+	--font-family-crimson: 'Crimson Text', var(--font-family-serif);
 
 	--black: #101112;
-
 	--white: #efece7;
 	--brown: #2d251f;
 	--darkbrown: #231e1a;
 	--red: #912839;
 	--primary: rgb(89, 40, 44);
-
+	--muted-foreground: rgba(163, 156, 143, 1);
 	--border-radius: 0.5rem;
 	--border: rgb(73, 62, 54);
 
@@ -52,9 +52,29 @@ button {
 	border: 1px solid var(--border);
 	padding: 1rem;
 	flex: 1;
+	font-family: var(--font-family-crimson);
+	font-size: 1.125rem;
 }
 
 .card:hover {
 	border: 1px solid rgb(89, 40, 44);
 	scale: 1.01;
+}
+
+h1 {
+	font-family: var(--font-family-display);
+	font-weight: 700;
+	font-optical-sizing: auto;
+	font-size: 4.5rem;
+}
+
+h2 {
+	font-family: var(--font-family-display);
+	font-weight: 700;
+	font-optical-sizing: auto;
+	font-size: 3rem;
+}
+
+p {
+	font-family: var(--font-family-crimson);
 }
