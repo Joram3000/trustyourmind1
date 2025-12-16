@@ -10,20 +10,21 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"dependencies": {
-		"@sanity/client": "^6.15.4",
+		"@sanity/client": "^7.13.2",
 		"@sanity/image-url": "^1.0.2",
-		"@sanity/svelte-loader": "^1.11.1",
-		"@sanity/visual-editing": "^2.0.0",
+		"@sanity/svelte-loader": "^2.0.3",
+		"@sanity/visual-editing": "^4.0.3",
+		"@sveltejs/adapter-vercel": "^6.2.0",
 		"groq": "^3.33.0",
 		"lucide-svelte": "^0.553.0"
 	},
 	"devDependencies": {
-		"@portabletext/svelte": "^2.1.12",
+		"@portabletext/svelte": "^3.0.1",
 		"@portabletext/types": "^2.0.13",
 		"@sanity/types": "^3.52.4",
 		"@sveltejs/adapter-auto": "^3.2.2",
-		"@sveltejs/kit": "^2.9.0",
-		"@sveltejs/vite-plugin-svelte": "^3.1.1",
+		"@sveltejs/kit": "^2.49.1",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@typescript-eslint/eslint-plugin": "^6.21.0",
 		"@typescript-eslint/parser": "^6.21.0",
 		"autoprefixer": "^10.4.20",
@@ -33,10 +34,11 @@
 		"postcss": "^8.4.41",
 		"prettier": "^3.3.3",
 		"prettier-plugin-svelte": "^3.2.6",
-		"svelte": "^4.2.18",
+		"svelte": "^5.1.4",
 		"tslib": "^2.6.3",
 		"typescript": "^5.5.3",
 		"vite": "^5.3.5"
 	},
+	"engines": { "node": "20.x" },
 	"type": "module"
 }

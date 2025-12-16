@@ -19,7 +19,7 @@
 			alt="Cover image for {post.title}"
 		/>
 	{:else}
-		<div class="post__cover--none" />
+		<div class="post__cover--none"></div>
 	{/if}
 	<div class="post__container">
 		<h1 class="post__title">{post.title}</h1>
@@ -68,13 +68,13 @@
 		margin-top: var(--space-6);
 	}
 
-	.post .post__content blockquote {
+	:global(.post .post__content blockquote) {
 		border-left: 5px solid var(--black);
 		padding-left: var(--space-3);
 		margin-left: var(--space-4);
 	}
 
-	.post .post__content a {
+	:global(.post .post__content a) {
 		color: var(--blue-600);
 		text-decoration: none;
 	}
