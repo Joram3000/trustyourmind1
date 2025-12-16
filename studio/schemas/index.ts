@@ -7,6 +7,9 @@ import usp from './usp'
 import hero from './hero'
 import button from './components/button'
 import services from './services'
+import aboutPage from './aboutPage'
+import textBlockType from './components/textBlock'
+import imageGallery from './components/imageGallery'
 
 export const schemaTypes = [
   post,
@@ -18,4 +21,7 @@ export const schemaTypes = [
   hero,
   button,
   services,
+  aboutPage,
+  textBlockType,
+  imageGallery,
 ]

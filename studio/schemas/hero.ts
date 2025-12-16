@@ -1,9 +1,11 @@
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import {DesktopIcon} from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
 
 export const hero = defineType({
   name: 'hero',
   title: 'Hero Section',
   type: 'object',
+  icon: DesktopIcon,
   fields: [
     defineField({
       name: 'headline',

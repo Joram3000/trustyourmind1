@@ -1,17 +1,21 @@
 <script lang="ts">
-	import type { HomePage } from '$lib/sanity/queries';
+	import type { Hero } from '$lib/sanity/queries';
 
-	export let homePage: HomePage;
+	export let data: Hero;
 </script>
 
 <div class="container">
 	<div class="inner">
-		<h1>{homePage.hero.headline}</h1>
-		<p>{homePage.hero.subheadline}</p>
-		<p>
-			{homePage.hero.excerpt}
-		</p>
-		<button>{homePage.hero.callToAction.label}</button>
+		<h1>{data.headline}</h1>
+
+		{#if data.subheadline}<p class="subheadline">{data.subheadline}</p>{/if}
+
+		{#if data.excerpt}
+			<p class="excerpt">
+				{data.excerpt}
+			</p>{/if}
+
+		{#if data.callToAction}<button>{data.callToAction.label}</button>{/if}
 	</div>
 </div>
 
@@ -30,9 +34,18 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		gap: 2rem;
+		gap: 1rem;
 		max-width: var(--max-width-1);
 		padding: 1rem;
-		/* margin: 1rem; */
+	}
+
+	.subheadline {
+		font-size: 1.5rem;
+		font-style: italic;
+	}
+
+	.excerpt {
+		font-size: 1.25rem;
+		color: var(--muted-foreground);
 	}
 </style>
