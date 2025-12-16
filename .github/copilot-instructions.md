@@ -12,36 +12,8 @@ This is a pnpm monorepo with two workspaces:
 ### Key Technologies
 
 - **Frontend**: SvelteKit, TypeScript, Svelte stores, GSAP animations
-- **Audio**: Tone.js for synthesis/effects, Web Audio API, WebGL waveform rendering
 - **CMS**: Sanity Studio with custom schema types and plugins
 - **Styling**: PostCSS, custom CSS with advanced animations
-
-## Audio System Architecture
-
-The application features a sophisticated real-time audio system:
-
-### Core Audio Services (singletons)
-
-- `AudioManager` - Central audio playback, effects, sync management
-- `InitializationService` - Handles complex audio system startup
-- `AudioProcessingManager` - Web Worker for heavy waveform/analysis tasks
-- `WaveformAnimationManager` - Centralized WebGL rendering coordination
-
-### Key Audio Patterns
-
-- **Singleton Pattern**: All audio services use `getInstance()` for coordination
-- **Web Workers**: CPU-intensive audio processing offloaded to `audioProcessor.worker.ts`
-- **Store-driven State**: Svelte stores in `$lib/stores/` manage all audio state
-- **Factory Pattern**: `WaveformRendererFactory` creates WebGL/Canvas renderers
-- **Debounced Updates**: Audio parameter changes use debouncing to prevent flicker
-
-### Audio Initialization Flow
-
-```ts
-// Always use the initialization service for audio setup
-await initializationService.initializeEverything()
-// Audio system state is managed in stores, not direct API calls
-```
 
 ## Development Workflows
 

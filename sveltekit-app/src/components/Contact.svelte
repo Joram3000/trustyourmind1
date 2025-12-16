@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import Icon from './Icon.svelte';
 	export let form;
 </script>
 
@@ -11,9 +12,19 @@
 		<div class="content">
 			<div class="contact-info">
 				<h3>Contact Information</h3>
-				<p>Email: contact@trustyourmind.com</p>
-				<p>Phone: +123 456 7890</p>
-				<p>Address: 123 Mindful Lane, Wellness City, Country</p>
+				<div class="contact-item">
+					<Icon name="phone" color="var(--red)" size="1.5rem" />
+					<p>Phone: +123 456 7890</p>
+				</div>
+				<div class="contact-item">
+					<Icon name="mail" color="var(--red)" size="1.5rem" />
+
+					<p>Email: contact@trustyourmind.com</p>
+				</div>
+				<div class="contact-item">
+					<Icon name="MapPin" color="var(--red)" size="1.5rem" />
+					<p>Address: 123 Mindful Lane, Wellness City, Country</p>
+				</div>
 			</div>
 
 			<div class="contact-form">
@@ -37,6 +48,7 @@
 							</label>
 						</div>
 						<button type="submit">Submit</button>
+						<p>All inquiries are confidential and will be responded to within 24 hours.</p>
 					</form>
 				{/if}
 			</div>
@@ -56,17 +68,23 @@
 	.inner {
 		max-width: var(--max-width-1);
 		width: 100%;
+		text-align: center;
 	}
 
 	.inner h2 {
 		width: 100%;
-		text-align: center;
+	}
+
+	.inner p {
+		color: var(--muted-foreground);
 	}
 
 	.content {
 		display: flex;
 		flex-direction: row;
 		width: 100%;
+		text-align: left;
+		gap: 1rem;
 	}
 
 	.contact-info,
@@ -75,6 +93,17 @@
 		flex-direction: column;
 		gap: 1rem;
 		width: 100%;
+	}
+
+	.contact-item {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	.contact-item p {
+		width: 80%;
 	}
 
 	.contact-form form {

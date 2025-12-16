@@ -12,13 +12,15 @@
 		<ul>
 			{#each homePage.usp.cards as card}
 				<li class="card">
-					<Icon name={card.icon} color="var(--red)" />
+					<Icon name={card.icon} color="var(--red)" size="3rem" />
 					<h3>{card.title}</h3>
 					<p>{card.content}</p>
 				</li>{/each}
 		</ul>
 
-		<PortableText components={{}} value={homePage.usp.content} />
+		<div class="content">
+			<PortableText components={{}} value={homePage.usp.content} />
+		</div>
 	</div>
 </div>
 
@@ -55,6 +57,16 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 1rem;
+	}
+
+	.card p {
+		color: var(--muted-foreground);
+	}
+
+	.content {
+		display: flex;
+		gap: 1rem;
+		flex-direction: column;
 	}
 
 	@media (max-width: 767px) {
