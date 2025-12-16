@@ -91,8 +91,8 @@ importers:
         specifier: ^3.33.0
         version: 3.99.0
       lucide-svelte:
-        specifier: ^0.553.0
-        version: 0.553.0(svelte@5.46.0)
+        specifier: 0.552.0
+        version: 0.552.0(svelte@5.46.0)
     devDependencies:
       '@portabletext/svelte':
         specifier: ^3.0.1
@@ -8587,8 +8587,8 @@ packages:
       react: 19.2.3
     dev: false
 
-  /lucide-svelte@0.553.0(svelte@5.46.0):
-    resolution: {integrity: sha512-pOqzFX+RfcNyvjF0+nGVnSmprd+4NQ6mvpLOLEmhTyZGOad8+OtCl65822E7Rx9qE7rfKw84ODKI2v318JZ/7g==}
+  /lucide-svelte@0.552.0(svelte@5.46.0):
+    resolution: {integrity: sha512-zynJ64KOsuQG3I4tSqfvvl7Kc9x4mWkppbxsuyrbegQwma9HFhBp4aE6HuQNF4c3pS0AHWHki5CAMs5m3QXA5w==}
     peerDependencies:
       svelte: ^3 || ^4 || ^5.0.0-next.42
     dependencies:
