@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Hero } from '$lib/sanity/queries';
+	import Icon from './Icon.svelte';
 
 	export let data: Hero;
 </script>
@@ -15,7 +16,8 @@
 				{data.excerpt}
 			</p>{/if}
 
-		{#if data.callToAction}<button>{data.callToAction.label}</button>{/if}
+		{#if data.callToAction}<button>{data.callToAction.label} <Icon name={'ArrowRight'} /></button
+			>{/if}
 	</div>
 </div>
 

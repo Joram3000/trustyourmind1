@@ -125,6 +125,10 @@
 		flex: 2;
 	}
 
+	button:hover {
+		scale: none;
+	}
+
 	.error {
 		color: red;
 		font-style: italic;

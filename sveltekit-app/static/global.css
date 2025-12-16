@@ -8,12 +8,13 @@
 	--white: #efece7;
 	--brown: #2d251f;
 	--darkbrown: #231e1a;
-	--red: #912839;
-	--primary: rgb(89, 40, 44);
+	--red: #8a2830;
+	--redHover: #79242b;
 	--muted-foreground: rgba(163, 156, 143, 1);
 	--border-radius: 0.5rem;
 	--border: rgb(73, 62, 54);
-
+	--shadow-elegant: 0 10px 40px -10px rgba(59, 17, 21, 0.789);
+	--transition-smooth: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 	--max-width-0: 320px;
 	--max-width-1: 768px;
 
@@ -40,11 +41,33 @@ html {
 
 button {
 	cursor: pointer;
-	background-color: var(--primary);
+	background-color: var(--red);
 	color: var(--white);
-	padding: 0.5rem 1rem;
+	padding: 1rem 2rem;
 	border: none;
 	border-radius: var(--border-radius);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	font-weight: 500;
+	font-size: 1.125rem;
+	transition: var(--transition-smooth);
+	box-shadow: var(--shadow-elegant);
+}
+
+button:hover {
+	background: var(--redHover);
+}
+
+button:active {
+	scale: 0.98;
+	transform: translateY(2px);
+}
+
+.button:disabled {
+	pointer-events: none;
+	opacity: 0.5;
 }
 
 .card {
