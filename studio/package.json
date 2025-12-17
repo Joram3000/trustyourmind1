@@ -16,11 +16,11 @@
   ],
   "dependencies": {
     "@sanity/icons": "^3.7.4",
-    "@sanity/vision": "^4.21.1",
+    "@sanity/vision": "^4.22.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-is": "^18.2.0",
-    "sanity": "^4.21.1",
+    "sanity": "^4.22.0",
     "sanity-plugin-lucide-icon-picker": "^1.0.3",
     "sanity-plugin-singleton-management": "^1.0.4",
     "styled-components": "^6.1.15"

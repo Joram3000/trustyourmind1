@@ -6,8 +6,6 @@
 
 	export let homePage: HomePage;
 	export let contactInfo: ContactInfo | null = null;
-
-	$: console.log('ContactInfo:', homePage);
 </script>
 
 <div class="container">
@@ -39,8 +37,7 @@
 			<div class="contact-form">
 				<h3>Contact Form</h3>
 				{#if form?.success}
-					<p>Successfully submitted the form!</p>
-					
+					<p>Successfully submitted the form.</p>
 				{:else}
 					<form method="POST" action="?/contactForm" use:enhance>
 						<div>
@@ -113,6 +110,7 @@
 		width: 100%;
 		text-align: left;
 		gap: 1rem;
+		padding: 1rem 0;
 	}
 
 	.contact-info,
@@ -121,7 +119,6 @@
 		flex-direction: column;
 		gap: 1rem;
 		width: 100%;
-		padding: 1rem;
 	}
 
 	.contact-info {

@@ -1,5 +1,5 @@
 import blockContent from './blockContent'
-import contact from './contactInformation'
+import contactInformation from './contactInformation'
 import post from './post'
 import card from './components/card'
 import homePage from './homePage'
@@ -12,11 +12,10 @@ import heroBlock from './heroBlock'
 import {contactBlock} from './contactBlock'
 import servicesBlock from './servicesBlock'
 
-
 export const schemaTypes = [
   post,
   blockContent,
-  contact,
+  contactInformation,
   card,
   homePage,
   uspBlock,

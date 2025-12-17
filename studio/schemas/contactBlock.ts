@@ -1,9 +1,11 @@
+import {DocumentTextIcon} from '@sanity/icons'
 import {defineType} from 'sanity'
 
 export const contactBlock = defineType({
-  name: 'contact',
-  title: 'Contact',
+  name: 'contactBlock',
+  title: 'Contact Block',
   type: 'object',
+  icon: DocumentTextIcon,
   fields: [
     {
       name: 'title',

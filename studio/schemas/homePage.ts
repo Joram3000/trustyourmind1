@@ -18,17 +18,17 @@ export default defineType({
     defineField({
       name: 'usp',
       title: 'USP Section',
-      type: 'usp',
+      type: 'uspBlock',
     }),
     defineField({
       name: 'services',
       title: 'Services Section',
-      type: 'services',
+      type: 'servicesBlock',
     }),
     defineField({
       name: 'contact',
       title: 'Contact Section',
-      type: 'contact',
+      type: 'contactBlock',
     }),
   ],
   preview: {
