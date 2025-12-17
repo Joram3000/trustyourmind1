@@ -47,6 +47,13 @@
 								<input name="email" type="email" value={form?.values?.email ?? ''} />
 							</label>
 						</div>
+						<div>
+							{#if form?.errors?.message}<p class="error">{form.errors.message}</p>{/if}
+							<label>
+								Message
+								<textarea name="message">{form?.values?.message ?? ''}</textarea>
+							</label>
+						</div>
 						<button type="submit">Submit</button>
 						<p>All inquiries are confidential and will be responded to within 24 hours.</p>
 					</form>
@@ -120,7 +127,8 @@
 		flex: 1;
 	}
 
-	.contact-form input {
+	.contact-form input,
+	.contact-form textarea {
 		width: 100%;
 		flex: 2;
 	}
