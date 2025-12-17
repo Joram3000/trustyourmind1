@@ -57,10 +57,12 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 1rem;
+		width: 100%;
 	}
 
 	.card p {
 		color: var(--muted-foreground);
+		flex: 1;
 	}
 
 	.content {

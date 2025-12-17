@@ -1,8 +1,8 @@
 import {defineType, defineField} from 'sanity'
 
 export default defineType({
-  name: 'contact',
-  title: 'Contact',
+  name: 'contactInformation',
+  title: 'Contact Information',
   type: 'document',
   options: {
     singleton: true,

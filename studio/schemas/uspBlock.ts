@@ -1,7 +1,7 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export const usp = defineType({
-  name: 'usp',
+  name: 'uspBlock',
   title: 'About the Practice',
   type: 'object',
   fields: [

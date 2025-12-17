@@ -1,7 +1,7 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export const services = defineType({
-  name: 'services',
+  name: 'servicesBlock',
   title: 'Services Section',
   type: 'object',
   fields: [

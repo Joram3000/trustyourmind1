@@ -102,3 +102,10 @@ h2 {
 p {
 	font-family: var(--font-family-crimson);
 }
+
+a {
+	font-family: var(--font-family-crimson);
+	text-decoration: none;
+	color: var(--white);
+	font-weight: 700;
+}

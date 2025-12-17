@@ -38,6 +38,7 @@
 
 	.inner p {
 		color: var(--muted-foreground);
+		flex: 1;
 	}
 
 	.inner ul {
