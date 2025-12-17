@@ -8,14 +8,18 @@ const resend = new Resend(RESEND_API_KEY);
 
 export const load: PageServerLoad = async (event) => {
 	const { loadQuery } = event.locals;
-	const initial = await loadQuery<HomePage>(query);
+	const parentDataPromise = event.parent();
+	const initialPromise = loadQuery<HomePage>(query);
+
+	const [initial, parentData] = await Promise.all([initialPromise, parentDataPromise]);
 
 	// We pass the data in a format that is easy for `useQuery` to consume in the
 	// corresponding `+page.svelte` file, but you can return the data in any
 	// format you like.
 	return {
 		query,
-		options: { initial }
+		options: { initial },
+		contactInfo: parentData.contactInfo
 	};
 };
 
@@ -34,7 +38,7 @@ export const actions = {
 					? null
 					: 'Invalid email address.'
 				: 'Email is required',
-			message: message ? null : 'Message is required'
+			message: message.length > 10 ? null : 'Message must be longer than 10 characters'
 		};
 
 		if (errors.name || errors.email || errors.message) {

@@ -2,24 +2,25 @@
 	import { useQuery } from '@sanity/svelte-loader';
 	import type { PageData } from './$types';
 
-	import Services from '../components/Services.svelte';
-	import Contact from '../components/Contact.svelte';
-	import Hero from '../components/Hero.svelte';
-	import Usp from '../components/Usp.svelte';
+	import ServicesBlock from '../components/ServicesBlock.svelte';
+	import ContactBlock from '../components/ContactBlock.svelte';
+	import HeroBlock from '../components/HeroBlock.svelte';
+	import UspBlock from '../components/UspBlock.svelte';
 
 	export let data: PageData;
 	export let form;
 	const q = useQuery(data);
 
 	$: ({ data: homePage } = $q);
+	const { contactInfo } = data;
 </script>
 
 <section>
-	<Hero data={homePage.hero} />
+	<HeroBlock data={homePage.hero} />
 
-	<Usp {homePage} />
+	<UspBlock {homePage} />
 
-	<Services {homePage} />
+	<ServicesBlock {homePage} />
 
-	<Contact {form} />
+	<ContactBlock {homePage} {form} {contactInfo} />
 </section>

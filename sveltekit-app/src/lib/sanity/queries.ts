@@ -24,7 +24,6 @@ export interface Post {
 
 export interface ContactInfo {
 	_type: 'contact';
-	_createdAt: string;
 	name: string;
 	email: string;
 	phoneNumber: string;
@@ -52,6 +51,11 @@ export interface HomePage {
 		subheadline?: string;
 		cards: Card[];
 		content?: PortableTextBlock[];
+	};
+	contact: {
+		title: string;
+		subtitle: string;
+		officeHours: PortableTextBlock[];
 	};
 }
 
