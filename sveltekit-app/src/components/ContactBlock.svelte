@@ -1,57 +1,79 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import type { ContactInfo, HomePage } from '$lib/sanity/queries';
 	import Icon from './Icon.svelte';
 	export let form;
+
+	export let homePage: HomePage;
+	export let contactInfo: ContactInfo | null = null;
+
+	$: console.log('ContactInfo:', homePage);
 </script>
 
 <div class="container">
 	<div class="inner">
-		<h2>Get in Touch</h2>
-		<p>Taking the first step can feel daunting. We're here to make it easier.</p>
+		<h2>{homePage.contact.title}</h2>
+		<p>{homePage.contact.subtitle}</p>
 
 		<div class="content">
-			<div class="contact-info">
-				<h3>Contact Information</h3>
-				<div class="contact-item">
-					<Icon name="phone" color="var(--red)" size="1.5rem" />
-					<p>Phone: +123 456 7890</p>
+			{#if !contactInfo}
+				<p>Loading contact information...</p>
+			{:else}
+				<div class="contact-info">
+					<h3>Contact Information</h3>
+					<div class="contact-item">
+						<Icon name="phone" color="var(--red)" size="1.5rem" />
+						<a href={`tel:${contactInfo.phoneNumber}`}>{contactInfo.phoneNumber}</a>
+					</div>
+					<div class="contact-item">
+						<Icon name="mail" color="var(--red)" size="1.5rem" />
+						<a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+					</div>
+					<div class="contact-item">
+						<Icon name="MapPin" color="var(--red)" size="1.5rem" />
+						<p>Address: {contactInfo.address}</p>
+					</div>
 				</div>
-				<div class="contact-item">
-					<Icon name="mail" color="var(--red)" size="1.5rem" />
-
-					<p>Email: contact@trustyourmind.com</p>
-				</div>
-				<div class="contact-item">
-					<Icon name="MapPin" color="var(--red)" size="1.5rem" />
-					<p>Address: 123 Mindful Lane, Wellness City, Country</p>
-				</div>
-			</div>
+			{/if}
 
 			<div class="contact-form">
 				<h3>Contact Form</h3>
 				{#if form?.success}
 					<p>Successfully submitted the form!</p>
+					
 				{:else}
 					<form method="POST" action="?/contactForm" use:enhance>
 						<div>
 							{#if form?.errors?.name}<p class="error">{form.errors.name}</p>{/if}
 							<label>
-								Name
-								<input name="name" type="text" value={form?.values?.name ?? ''} />
+								<span class="label-text">Name</span>
+								<input
+									placeholder="Your Name"
+									name="name"
+									type="text"
+									value={form?.values?.name ?? ''}
+								/>
 							</label>
 						</div>
 						<div>
 							{#if form?.errors?.email}<p class="error">{form.errors.email}</p>{/if}
 							<label>
-								Email
-								<input name="email" type="email" value={form?.values?.email ?? ''} />
+								<span class="label-text">Email</span>
+								<input
+									name="email"
+									type="email"
+									value={form?.values?.email ?? ''}
+									placeholder="your@emailaddress"
+								/>
 							</label>
 						</div>
 						<div>
 							{#if form?.errors?.message}<p class="error">{form.errors.message}</p>{/if}
 							<label>
-								Message
-								<textarea name="message">{form?.values?.message ?? ''}</textarea>
+								<span class="label-text">Message</span>
+								<textarea name="message" rows="8" placeholder="Your message"
+									>{form?.values?.message ?? ''}</textarea
+								>
 							</label>
 						</div>
 						<button type="submit">Submit</button>
@@ -83,7 +105,6 @@
 	}
 
 	.inner p {
-		color: var(--muted-foreground);
 	}
 
 	.content {
@@ -100,6 +121,15 @@
 		flex-direction: column;
 		gap: 1rem;
 		width: 100%;
+		padding: 1rem;
+	}
+
+	.contact-info {
+		flex: 2;
+	}
+
+	.contact-form {
+		flex: 3;
 	}
 
 	.contact-item {
@@ -109,8 +139,10 @@
 		gap: 1rem;
 	}
 
-	.contact-item p {
-		width: 80%;
+	.contact-item :global(svg) {
+		flex: 0 0 1.5rem;
+		width: 1.5rem;
+		height: 1.5rem;
 	}
 
 	.contact-form form {
@@ -121,16 +153,26 @@
 
 	.contact-form label {
 		display: flex;
-		flex-direction: row;
-		align-items: center;
+
 		gap: 1rem;
-		flex: 1;
+	}
+
+	.label-text {
+		display: none;
+		width: 4rem;
+		flex-shrink: 0;
+		font-weight: 600;
+	}
+
+	.contact-form p {
+		text-align: center;
 	}
 
 	.contact-form input,
 	.contact-form textarea {
 		width: 100%;
-		flex: 2;
+		flex: 1;
+		padding: 0.5rem;
 	}
 
 	button:hover {
