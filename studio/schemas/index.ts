@@ -1,15 +1,17 @@
 import blockContent from './blockContent'
-import contact from './contact'
+import contact from './contactInformation'
 import post from './post'
 import card from './components/card'
 import homePage from './homePage'
-import usp from './usp'
-import hero from './hero'
 import button from './components/button'
-import services from './services'
 import aboutPage from './aboutPage'
 import textBlockType from './components/textBlock'
 import imageGallery from './components/imageGallery'
+import uspBlock from './uspBlock'
+import heroBlock from './heroBlock'
+import {contactBlock} from './contactBlock'
+import servicesBlock from './servicesBlock'
+
 
 export const schemaTypes = [
   post,
@@ -17,10 +19,11 @@ export const schemaTypes = [
   contact,
   card,
   homePage,
-  usp,
-  hero,
+  uspBlock,
+  heroBlock,
+  contactBlock,
   button,
-  services,
+  servicesBlock,
   aboutPage,
   textBlockType,
   imageGallery,

@@ -25,6 +25,11 @@ export default defineType({
       title: 'Services Section',
       type: 'services',
     }),
+    defineField({
+      name: 'contact',
+      title: 'Contact Section',
+      type: 'contact',
+    }),
   ],
   preview: {
     select: {
