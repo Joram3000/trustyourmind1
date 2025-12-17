@@ -58,15 +58,16 @@ button {
 
 button:hover {
 	background: var(--redHover);
+	scale: 1.02;
 }
 
 button:active {
 	scale: 0.98;
-	transform: translateY(2px);
 }
 
 .button:disabled {
 	pointer-events: none;
+	color: var(--muted-foreground);
 	opacity: 0.5;
 }
 
