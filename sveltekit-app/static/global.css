@@ -19,6 +19,8 @@
 	--max-width-1: 768px;
 
 	--header-height: 45px;
+
+	--padding-block: min(10vh, 10rem);
 }
 
 html {

@@ -31,6 +31,7 @@
 		align-items: center;
 		background-color: var(--brown);
 		padding: 1rem;
+		padding-block: var(--padding-block);
 	}
 
 	.inner {

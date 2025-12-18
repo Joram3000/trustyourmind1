@@ -89,6 +89,7 @@
 		flex-direction: column;
 		align-items: center;
 		padding: 1rem;
+		padding-block: var(--padding-block);
 	}
 
 	.inner {
