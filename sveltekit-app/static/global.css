@@ -19,6 +19,8 @@
 	--max-width-1: 768px;
 
 	--header-height: 45px;
+
+	--padding-block: min(10vh, 10rem);
 }
 
 html {
@@ -108,4 +110,10 @@ a {
 	text-decoration: none;
 	color: var(--white);
 	font-weight: 700;
+}
+
+ul,
+ol {
+	list-style-position: inside;
+	padding: 0.25rem;
 }

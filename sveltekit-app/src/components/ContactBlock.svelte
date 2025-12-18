@@ -89,6 +89,7 @@
 		flex-direction: column;
 		align-items: center;
 		padding: 1rem;
+		padding-block: var(--padding-block);
 	}
 
 	.inner {
@@ -99,9 +100,6 @@
 
 	.inner h2 {
 		width: 100%;
-	}
-
-	.inner p {
 	}
 
 	.content {
@@ -117,7 +115,8 @@
 	.contact-form {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+
+		gap: 0.5rem;
 		width: 100%;
 	}
 
@@ -132,7 +131,7 @@
 	.contact-item {
 		display: flex;
 		flex-direction: row;
-		align-items: flex-start;
+		align-items: center;
 		gap: 1rem;
 	}
 
@@ -179,5 +178,11 @@
 	.error {
 		color: red;
 		font-style: italic;
+	}
+
+	@media (max-width: 767px) {
+		.content {
+			flex-direction: column;
+		}
 	}
 </style>

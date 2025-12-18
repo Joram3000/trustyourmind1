@@ -29,6 +29,7 @@
 		background-color: var(--darkbrown);
 		justify-content: center;
 		padding: 1rem;
+		padding-block: var(--padding-block);
 	}
 
 	.inner {
