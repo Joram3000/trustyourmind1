@@ -24,6 +24,7 @@
 		display: flex;
 		gap: 1rem;
 		padding: 1rem;
+		flex-wrap: wrap;
 	}
 
 	img {
