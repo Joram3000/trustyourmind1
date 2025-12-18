@@ -76,7 +76,7 @@
 	.header {
 		display: flex;
 		/* padding-left: 0 1rem; */
-		background-color: darkblue;
+		background-color: rgba(0, 0, 0, 0.743);
 
 		z-index: 10;
 		position: fixed;
@@ -103,7 +103,7 @@
 			border-bottom: none;
 			/* margin: 12px 0; */
 			/* padding: 8px 0; */
-			background: unset;
+			/* background: unset; */
 		}
 
 		/* .header .header__title { */
