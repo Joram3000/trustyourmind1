@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { urlFor } from '$lib/sanity/image';
 	import type { Hero } from '$lib/sanity/queries';
 	import Icon from './Icon.svelte';
 
@@ -6,6 +7,9 @@
 </script>
 
 <div class="container">
+	{#if data.backgroundImage}
+		<img src={urlFor(data.backgroundImage).url()} alt="" class="background-image" />
+	{/if}
 	<div class="inner">
 		<h1>{data.headline}</h1>
 
@@ -29,6 +33,23 @@
 		width: 100%;
 		height: 90vh;
 		background-color: var(--darkbrown);
+		position: relative;
+	}
+
+	.background-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		opacity: 0.5;
+		background-image: linear-gradient(
+			to right,
+			hsl(25 15% 12% / 0.95),
+			hsl(25 15% 12% / 0.85),
+			hsl(25 15% 12% / 0.6)
+		);
 	}
 
 	.inner {
@@ -39,6 +60,7 @@
 		gap: 1rem;
 		max-width: var(--max-width-1);
 		padding: 1rem;
+		z-index: 1;
 	}
 
 	.subheadline {
