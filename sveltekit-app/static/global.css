@@ -92,7 +92,7 @@ h1 {
 	font-family: var(--font-family-display);
 	font-weight: 700;
 	font-optical-sizing: auto;
-	font-size: 4.5rem;
+	font-size: clamp(3.5rem, 10vw, 4.5rem);
 }
 
 h2 {
