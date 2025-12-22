@@ -24,6 +24,7 @@
 }
 
 html {
+	background-color: var(--darkbrown);
 	color: var(--white);
 	font-family: var(--font-family-sans), var(--font-family-serif), sans-serif;
 	-webkit-text-size-adjust: 100%;
