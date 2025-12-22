@@ -1,16 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Menu, X } from 'lucide-svelte';
+	import { page } from '$app/stores';
 
 	let menuOpen = false;
 
 	function toggleMenu() {
 		menuOpen = !menuOpen;
 	}
-
-	// function openMenu() {
-	// 	menuOpen = true;
-	// }
 
 	function closeMenu() {
 		menuOpen = false;
@@ -20,6 +17,14 @@
 		if (e.key === 'Escape' && menuOpen) {
 			closeMenu();
 		}
+	}
+
+	$: pathname = $page.url.pathname;
+	$: params = $page.params;
+
+	function isActive(route: string) {
+		if (route === '/') return pathname === '/';
+		return pathname === route || pathname.startsWith(`${route}/`);
 	}
 
 	onMount(() => {
@@ -37,27 +42,35 @@
 		aria-controls="site-navigation"
 	>
 		{#if menuOpen}
-			<X class="icon" />
+			<X size="1.75rem" />
 		{:else}
-			<Menu class="icon" />
+			<Menu size="1.75rem" />
 		{/if}
 	</button>
 
-	<!-- Example nav (toggle visibility via menuOpen). Replace or hook into your actual nav as needed -->
 	<nav id="site-navigation" class:open={menuOpen} hidden={!menuOpen}>
-		<!-- nav items go here -->
-
-		<a class="header__title" href="/">Home</a>
-		<a class="header__title" href="/about">About</a>
+		<a
+			class="header__title"
+			href="/"
+			class:active={isActive('/')}
+			aria-current={isActive('/') ? 'page' : undefined}
+		>
+			Home
+		</a>
+		<a
+			class="header__title"
+			href="/about"
+			class:active={isActive('/about')}
+			aria-current={isActive('/about') ? 'page' : undefined}
+		>
+			About
+		</a>
 	</nav>
 </header>
 
 <style>
 	.container {
 		display: flex;
-		/* padding-left: 0 1rem; */
-		background-color: rgba(0, 0, 0, 0.743);
-
 		z-index: 10;
 		position: fixed;
 		left: 0;
@@ -65,9 +78,8 @@
 		top: 0;
 		height: var(--header-height);
 		align-items: center;
-		gap: 1rem;
 		margin: 0;
-		padding: 0rem 1rem;
+		padding: 1rem;
 	}
 
 	.menu-button {
@@ -77,36 +89,47 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0.25rem;
 		cursor: pointer;
-	}
-
-	:global(svg) {
-		width: 1.75rem;
-		height: 1.75rem;
+		padding: 0rem;
+		border-radius: 0;
 	}
 
 	nav {
-		/* simple hidden-by-default nav for mobile; adapt to your layout */
 		display: none;
+	}
+
+	nav a {
+		font-size: 1.25rem;
+	}
+
+	nav a:hover {
+		opacity: 0.8;
+		scale: 1.04;
+	}
+
+	nav a.active {
+		text-decoration: underline;
 	}
 
 	nav.open {
 		display: block;
+		flex-direction: column;
+		gap: 1rem;
+		display: flex;
+		position: absolute;
+		top: var(--header-height);
 	}
 
 	@media (min-width: 768px) {
-		.container {
-			position: unset;
-			border-bottom: none;
-			/* margin: 12px 0; */
-			/* padding: 8px 0; */
-			/* background: unset; */
-		}
-
-		/* show nav by default on larger screens */
 		nav {
 			display: block;
+			flex-direction: row;
+			gap: 1rem;
+			display: flex;
+		}
+
+		.menu-button {
+			display: none;
 		}
 	}
 </style>

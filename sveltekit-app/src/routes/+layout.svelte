@@ -65,34 +65,9 @@
 	}
 
 	main {
-		margin-top: var(--header-height);
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-	}
-
-	
-
-	@media (min-width: 768px) {
-		.container {
-		}
-
-		main {
-			margin-top: unset;
-		}
-
-		.header {
-			position: unset;
-			border-bottom: none;
-			/* margin: 12px 0; */
-			/* padding: 8px 0; */
-			/* background: unset; */
-		}
-
-		/* .header .header__title { */
-		/* margin: 12px 0 8px; */
-		/* font-size: 20px; */
-		/* } */
 	}
 
 	.preview-toggle {
