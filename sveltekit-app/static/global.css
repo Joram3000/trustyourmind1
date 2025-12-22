@@ -24,6 +24,7 @@
 }
 
 html {
+	background-color: var(--darkbrown);
 	color: var(--white);
 	font-family: var(--font-family-sans), var(--font-family-serif), sans-serif;
 	-webkit-text-size-adjust: 100%;
@@ -91,7 +92,7 @@ h1 {
 	font-family: var(--font-family-display);
 	font-weight: 700;
 	font-optical-sizing: auto;
-	font-size: 4.5rem;
+	font-size: clamp(3.5rem, 10vw, 4.5rem);
 }
 
 h2 {
