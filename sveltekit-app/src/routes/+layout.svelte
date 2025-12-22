@@ -5,6 +5,7 @@
 	import { onMount } from 'svelte';
 	import type { ContactInfo } from '$lib/sanity/queries';
 	import Footer from '../components/Footer.svelte';
+	import Header from '../components/Header.svelte';
 	let outlineEnabled = true;
 
 	export let data: { preview: boolean; contactInfo: ContactInfo | null };
@@ -39,10 +40,7 @@
 {/if}
 
 <div class="container">
-	<header class="header">
-		<a class="header__title" href="/">Home</a>
-		<a class="header__title" href="/about">About</a>
-	</header>
+	<Header />
 
 	<main>
 		<slot />
@@ -73,22 +71,7 @@
 		flex-direction: column;
 	}
 
-	.header {
-		display: flex;
-		/* padding-left: 0 1rem; */
-		background-color: rgba(0, 0, 0, 0.743);
-
-		z-index: 10;
-		position: fixed;
-		left: 0;
-		right: 0;
-		top: 0;
-		height: var(--header-height);
-		align-items: center;
-		gap: 1rem;
-		margin: 0;
-		padding: 0rem 1rem;
-	}
+	
 
 	@media (min-width: 768px) {
 		.container {
