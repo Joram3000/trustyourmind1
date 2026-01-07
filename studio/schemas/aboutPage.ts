@@ -26,6 +26,11 @@ export default defineType({
         defineArrayMember({type: 'imageGallery', title: 'Image Gallery'}),
       ],
     }),
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
+    }),
   ],
   preview: {
     select: {

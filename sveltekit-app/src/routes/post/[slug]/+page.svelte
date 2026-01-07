@@ -11,6 +11,13 @@
 	$: ({ data: post } = $q);
 </script>
 
+<svelte:head>
+	<title>{post.title ?? 'Post by Niko Malafek'}</title>
+	<meta name="description" content={post.seo?.description} />
+
+	<link rel="canonical" href={post.seo?.canonical} />
+</svelte:head>
+
 <section class="post">
 	{#if post.mainImage}
 		<img

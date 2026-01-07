@@ -11,6 +11,7 @@ import uspBlock from './uspBlock'
 import heroBlock from './heroBlock'
 import {contactBlock} from './contactBlock'
 import servicesBlock from './servicesBlock'
+import seo from './components/seo'
 import header from './header'
 
 export const schemaTypes = [
@@ -27,5 +28,6 @@ export const schemaTypes = [
   aboutPage,
   textBlockType,
   imageGallery,
+  seo,
   header,
 ]
