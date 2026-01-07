@@ -20,6 +20,7 @@ export interface Post {
 	excerpt?: string;
 	mainImage?: ImageAsset;
 	body: PortableTextBlock[];
+	seo: SEO;
 }
 
 export interface ContactInfo {
@@ -35,6 +36,7 @@ export interface AboutPage {
 	_type: 'aboutPage';
 	title?: string;
 	sections: Sections;
+	seo: SEO;
 }
 
 export interface HomePage {
@@ -57,6 +59,7 @@ export interface HomePage {
 		subtitle: string;
 		officeHours: PortableTextBlock[];
 	};
+	seo: SEO;
 }
 
 export interface Button {
@@ -97,4 +100,10 @@ export interface TextBlock {
 	_key: string;
 	title?: string;
 	body: PortableTextBlock[];
+}
+
+export interface SEO {
+	title: string;
+	description?: string;
+	canonical?: string;
 }
