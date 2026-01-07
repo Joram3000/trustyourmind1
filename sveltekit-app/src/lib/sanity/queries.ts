@@ -9,7 +9,6 @@ export const homePageQuery = groq`*[_type == "homePage"][0]`;
 export const aboutPageQuery = groq`*[_type == "aboutPage"][0]`;
 
 export const customPageQuery = groq`*[_type == "customPage" && slug.current == $slug][0]`;
-
 export const postsQuery = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`;
 
 export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]`;
@@ -47,6 +46,12 @@ export interface CustomPage {
 	slug: Slug;
 	sections: Sections;
 	seo: SEO;
+}
+
+export interface PostPage {
+	_type: 'postPage';
+	title?: string;
+	posts: Post[];
 }
 
 export interface HomePage {
