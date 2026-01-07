@@ -2,16 +2,17 @@ import type { PortableTextBlock } from '@portabletext/types';
 import type { ImageAsset, Slug } from '@sanity/types';
 import groq from 'groq';
 
-export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]`;
-
-export const postsQuery = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`;
-
 export const contactInfoQuery = groq`*[_type == "contactInformation"][0]`;
 export const headerQuery = groq`*[_type == "header"][0]`;
 
 export const homePageQuery = groq`*[_type == "homePage"][0]`;
-
 export const aboutPageQuery = groq`*[_type == "aboutPage"][0]`;
+
+export const customPageQuery = groq`*[_type == "customPage" && slug.current == $slug][0]`;
+
+export const postsQuery = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`;
+
+export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]`;
 
 export interface Post {
 	_type: 'post';
@@ -38,6 +39,13 @@ export interface AboutPage {
 	title?: string;
 	sections: Sections;
 	seo: SEO;
+}
+
+export interface CustomPage {
+	_type: 'customPage';
+	title?: string;
+	slug: Slug;
+	sections: Sections;
 }
 
 export interface HomePage {
