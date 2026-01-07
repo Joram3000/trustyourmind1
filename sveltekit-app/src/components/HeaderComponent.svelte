@@ -2,6 +2,11 @@
 	import { onMount } from 'svelte';
 	import { Menu, X } from 'lucide-svelte';
 	import { page } from '$app/stores';
+	import { type Header } from '$lib/sanity/queries';
+
+	export let data: Header | null;
+
+	$: items = data?.items ?? [];
 
 	let menuOpen = false;
 
@@ -49,22 +54,16 @@
 	</button>
 
 	<nav id="site-navigation" class:open={menuOpen} hidden={!menuOpen}>
-		<a
-			class="header__title"
-			href="/"
-			class:active={isActive('/')}
-			aria-current={isActive('/') ? 'page' : undefined}
-		>
-			Home
-		</a>
-		<a
-			class="header__title"
-			href="/about"
-			class:active={isActive('/about')}
-			aria-current={isActive('/about') ? 'page' : undefined}
-		>
-			About
-		</a>
+		{#each items as item}
+			<a
+				class="header__title"
+				href={item.link}
+				class:active={isActive(item.link)}
+				aria-current={isActive(item.link) ? 'page' : undefined}
+			>
+				{item.label}
+			</a>
+		{/each}
 	</nav>
 </header>
 
