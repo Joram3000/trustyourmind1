@@ -43,6 +43,7 @@
 	h1 {
 		text-align: center;
 		width: 100%;
+		margin-top: var(--header-height);
 	}
 
 	.inner {
