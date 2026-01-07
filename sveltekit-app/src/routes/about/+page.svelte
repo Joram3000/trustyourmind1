@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>{aboutPage.seo?.title && 'About Niko Malafek'}</title>
+	<title>{aboutPage.seo?.title ?? 'About Niko Malafek'}</title>
 	<meta name="description" content={aboutPage.seo?.description} />
 
 	<link rel="canonical" href={aboutPage.seo?.canonical} />

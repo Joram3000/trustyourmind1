@@ -46,6 +46,7 @@ export interface CustomPage {
 	title?: string;
 	slug: Slug;
 	sections: Sections;
+	seo: SEO;
 }
 
 export interface HomePage {

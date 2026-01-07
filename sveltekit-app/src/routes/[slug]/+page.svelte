@@ -8,6 +8,13 @@
 	$: ({ data: customPage } = $q);
 </script>
 
+<svelte:head>
+	<title>{customPage.seo?.title ?? 'Trust Your Mind'}</title>
+	<meta name="description" content={customPage.seo?.description} />
+
+	<link rel="canonical" href={customPage.seo?.canonical} />
+</svelte:head>
+
 <section>
 	<div class="inner">
 		{#if customPage.title}
