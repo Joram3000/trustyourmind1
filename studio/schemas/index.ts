@@ -12,6 +12,7 @@ import heroBlock from './heroBlock'
 import {contactBlock} from './contactBlock'
 import servicesBlock from './servicesBlock'
 import seo from './components/seo'
+import header from './header'
 
 export const schemaTypes = [
   post,
@@ -28,4 +29,5 @@ export const schemaTypes = [
   textBlockType,
   imageGallery,
   seo,
+  header,
 ]

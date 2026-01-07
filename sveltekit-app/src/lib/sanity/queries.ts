@@ -7,6 +7,7 @@ export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]`;
 export const postsQuery = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`;
 
 export const contactInfoQuery = groq`*[_type == "contactInformation"][0]`;
+export const headerQuery = groq`*[_type == "header"][0]`;
 
 export const homePageQuery = groq`*[_type == "homePage"][0]`;
 
@@ -106,4 +107,8 @@ export interface SEO {
 	title: string;
 	description?: string;
 	canonical?: string;
+}
+
+export interface Header {
+	items: { label: string; link: string }[];
 }
