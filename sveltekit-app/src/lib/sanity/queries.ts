@@ -3,6 +3,7 @@ import type { ImageAsset, Slug } from '@sanity/types';
 import groq from 'groq';
 
 export const contactInfoQuery = groq`*[_type == "contactInformation"][0]`;
+export const headerQuery = groq`*[_type == "header"][0]`;
 
 export const homePageQuery = groq`*[_type == "homePage"][0]`;
 export const aboutPageQuery = groq`*[_type == "aboutPage"][0]`;
@@ -21,6 +22,7 @@ export interface Post {
 	excerpt?: string;
 	mainImage?: ImageAsset;
 	body: PortableTextBlock[];
+	seo: SEO;
 }
 
 export interface ContactInfo {
@@ -36,6 +38,7 @@ export interface AboutPage {
 	_type: 'aboutPage';
 	title?: string;
 	sections: Sections;
+	seo: SEO;
 }
 
 export interface CustomPage {
@@ -65,6 +68,7 @@ export interface HomePage {
 		subtitle: string;
 		officeHours: PortableTextBlock[];
 	};
+	seo: SEO;
 }
 
 export interface Button {
@@ -105,4 +109,14 @@ export interface TextBlock {
 	_key: string;
 	title?: string;
 	body: PortableTextBlock[];
+}
+
+export interface SEO {
+	title: string;
+	description?: string;
+	canonical?: string;
+}
+
+export interface Header {
+	items: { label: string; link: string }[];
 }

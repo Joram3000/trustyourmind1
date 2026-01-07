@@ -30,6 +30,11 @@ export default defineType({
       title: 'Contact Section',
       type: 'contactBlock',
     }),
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
+    }),
   ],
   preview: {
     select: {

@@ -8,6 +8,13 @@
 	$: ({ data: aboutPage } = $q);
 </script>
 
+<svelte:head>
+	<title>{aboutPage.seo?.title && 'About Niko Malafek'}</title>
+	<meta name="description" content={aboutPage.seo?.description} />
+
+	<link rel="canonical" href={aboutPage.seo?.canonical} />
+</svelte:head>
+
 <section>
 	<div class="inner">
 		{#if aboutPage.title}
