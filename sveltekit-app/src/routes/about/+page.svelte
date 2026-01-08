@@ -44,11 +44,17 @@
 	h1 {
 		text-align: center;
 		width: 100%;
-		margin-top: var(--header-height);
+		/* margin-top: var(--header-height); */
 		padding: 1rem;
 	}
 
 	.inner {
 		width: 100%;
+	}
+
+	@media (min-width: 768px) {
+		.inner {
+			margin: var(--header-height) auto 0;
+		}
 	}
 </style>

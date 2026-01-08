@@ -59,7 +59,7 @@
 	.post {
 		width: 100%;
 		max-width: var(--max-width-1);
-		margin: var(--header-height) auto 0;
+		margin: 0 auto 0;
 		height: 100%;
 		display: flex;
 		flex: 1;
@@ -78,6 +78,10 @@
 	.post .post__cover--none {
 		background: var(--black);
 		width: 100%;
+	}
+
+	.post__container {
+		padding: 0 1rem;
 	}
 
 	:global(.post .post__content blockquote) {
@@ -102,30 +106,20 @@
 		font-family: var(--font-family-sans);
 		font-weight: 600;
 		font-family: var(--font-family-sans);
-		font-size: var(--font-size-1);
+		font-size: 0.8rem;
 		line-height: var(--line-height-1);
 		margin-top: var(--space-4);
 		text-align: right;
 	}
 
-	@media (min-width: 800px) {
+	@media (min-width: 768px) {
+		.post {
+			margin: var(--header-height) auto 0;
+		}
 		.post .post__cover,
 		.post .post__cover--none {
 			width: 100%;
 			height: 380px;
-		}
-
-		.post .post__excerpt {
-			font-size: var(--font-size-5);
-			line-height: var(--line-height-5);
-			margin-top: var(--space-3);
-			margin-bottom: var(--space-3);
-		}
-
-		.post .post__date {
-			font-size: var(--font-size-3);
-			line-height: var(--line-height-2);
-			margin-top: var(--space-0);
 		}
 	}
 </style>
