@@ -240,6 +240,9 @@
 			opacity: 1;
 			transform: none;
 			pointer-events: auto;
+			display: block;
+			flex-direction: row;
+			gap: 3rem;
 			display: flex;
 			flex-direction: row;
 			gap: 3rem;
