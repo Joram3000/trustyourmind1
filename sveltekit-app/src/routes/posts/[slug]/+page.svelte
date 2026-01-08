@@ -80,6 +80,10 @@
 		width: 100%;
 	}
 
+	.post__container {
+		padding: 0 1rem;
+	}
+
 	:global(.post .post__content blockquote) {
 		/* /border-left: 5px solid var(--black); */
 		padding: 1rem;
@@ -102,7 +106,7 @@
 		font-family: var(--font-family-sans);
 		font-weight: 600;
 		font-family: var(--font-family-sans);
-		font-size: var(--font-size-1);
+		font-size: 0.8rem;
 		line-height: var(--line-height-1);
 		margin-top: var(--space-4);
 		text-align: right;
@@ -113,19 +117,6 @@
 		.post .post__cover--none {
 			width: 100%;
 			height: 380px;
-		}
-
-		.post .post__excerpt {
-			font-size: var(--font-size-5);
-			line-height: var(--line-height-5);
-			margin-top: var(--space-3);
-			margin-bottom: var(--space-3);
-		}
-
-		.post .post__date {
-			font-size: var(--font-size-3);
-			line-height: var(--line-height-2);
-			margin-top: var(--space-0);
 		}
 	}
 </style>

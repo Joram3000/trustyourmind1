@@ -70,6 +70,13 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
+		margin-top: var(--header-height);
+	}
+
+	@media (min-width: 768px) {
+		main {
+			margin-top: 0;
+		}
 	}
 
 	.preview-toggle {
