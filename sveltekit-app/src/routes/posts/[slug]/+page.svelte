@@ -23,7 +23,7 @@
 		{#if post.mainImage}
 			<img
 				class="post__cover"
-				src={urlFor(post.mainImage).url()}
+				src={urlFor(post.mainImage).height(380).width(800).url()}
 				alt="Cover image for {post.title}"
 			/>
 		{:else}
