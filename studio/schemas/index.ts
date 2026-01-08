@@ -14,6 +14,7 @@ import servicesBlock from './servicesBlock'
 import customPage from './customPage'
 import seo from './components/seo'
 import header from './header'
+import postsPage from './postsPage'
 
 export const schemaTypes = [
   post,
@@ -27,6 +28,7 @@ export const schemaTypes = [
   button,
   servicesBlock,
   aboutPage,
+  postsPage,
   textBlockType,
   imageGallery,
   customPage,

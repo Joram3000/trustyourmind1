@@ -18,36 +18,53 @@
 	<link rel="canonical" href={post.seo?.canonical} />
 </svelte:head>
 
-<section class="post">
-	{#if post.mainImage}
-		<img
-			class="post__cover"
-			src={urlFor(post.mainImage).url()}
-			alt="Cover image for {post.title}"
-		/>
-	{:else}
-		<div class="post__cover--none"></div>
-	{/if}
-	<div class="post__container">
-		<h1 class="post__title">{post.title}</h1>
-		{#if post.excerpt}
-			<p class="post__excerpt">{post.excerpt}</p>
+<section>
+	<div class="post">
+		{#if post.mainImage}
+			<img
+				class="post__cover"
+				src={urlFor(post.mainImage).height(380).width(800).url()}
+				alt="Cover image for {post.title}"
+			/>
+		{:else}
+			<div class="post__cover--none"></div>
 		{/if}
-		<p class="post__date">
-			{formatDate(post._createdAt)}
-		</p>
-		{#if post.body}
-			<div class="post__content">
-				<PortableText components={{}} value={post.body} />
-			</div>
-		{/if}
+		<div class="post__container">
+			<h1>{post.title}</h1>
+			{#if post.excerpt}
+				<p class="post__excerpt">{post.excerpt}</p>
+			{/if}
+			<p class="post__date">
+				{formatDate(post._createdAt)}
+			</p>
+			{#if post.body}
+				<div class="post__content">
+					<PortableText components={{}} value={post.body} />
+				</div>
+			{/if}
+		</div>
 	</div>
 </section>
 
 <style>
+	section {
+		background-color: var(--brown);
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		padding-block-end: var(--padding-block);
+	}
+
 	.post {
 		width: 100%;
-		margin: var(--space-1) 0 var(--space-4);
+		max-width: var(--max-width-1);
+		margin: var(--header-height) auto 0;
+		height: 100%;
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: 1rem;
 	}
 
 	.post .post__cover,
@@ -60,38 +77,17 @@
 
 	.post .post__cover--none {
 		background: var(--black);
-	}
-
-	.post .post__container {
-		padding: 0 var(--space-3);
-	}
-
-	.post .post__content {
-		font-family: var(--font-family-serif);
-		font-weight: 400;
-		font-size: var(--font-size-4);
-		line-height: var(--line-height-5);
-		letter-spacing: -0.02em;
-		margin-top: var(--space-6);
+		width: 100%;
 	}
 
 	:global(.post .post__content blockquote) {
-		border-left: 5px solid var(--black);
-		padding-left: var(--space-3);
-		margin-left: var(--space-4);
+		/* /border-left: 5px solid var(--black); */
+		padding: 1rem;
 	}
 
 	:global(.post .post__content a) {
 		color: var(--blue-600);
 		text-decoration: none;
-	}
-
-	.post .post__title {
-		font-family: var(--font-family-sans);
-		font-size: var(--font-size-7);
-		line-height: var(--line-height-6);
-		margin: var(--space-4) 0;
-		font-weight: 800;
 	}
 
 	.post .post__excerpt {
@@ -109,20 +105,14 @@
 		font-size: var(--font-size-1);
 		line-height: var(--line-height-1);
 		margin-top: var(--space-4);
+		text-align: right;
 	}
 
 	@media (min-width: 800px) {
 		.post .post__cover,
 		.post .post__cover--none {
-			width: 750px;
+			width: 100%;
 			height: 380px;
-		}
-
-		.post .post__title {
-			font-size: var(--font-size-10);
-			line-height: var(--line-height-10);
-			margin: var(--space-6) 0 0;
-			letter-spacing: -0.025em;
 		}
 
 		.post .post__excerpt {
@@ -136,10 +126,6 @@
 			font-size: var(--font-size-3);
 			line-height: var(--line-height-2);
 			margin-top: var(--space-0);
-		}
-
-		.post .post__content {
-			margin-top: var(--space-7);
 		}
 	}
 </style>
