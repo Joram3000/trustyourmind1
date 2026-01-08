@@ -42,7 +42,7 @@
 	.inner {
 		width: 100%;
 		max-width: var(--max-width-1);
-		margin: var(--header-height) auto 0;
+		margin: 0 auto 0;
 		height: 100%;
 		display: flex;
 		flex: 1;
@@ -58,5 +58,11 @@
 
 	.inner {
 		width: 100%;
+	}
+
+	@media (min-width: 768px) {
+		.inner {
+			margin: var(--header-height) auto 0;
+		}
 	}
 </style>

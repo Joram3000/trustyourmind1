@@ -59,7 +59,7 @@
 	.post {
 		width: 100%;
 		max-width: var(--max-width-1);
-		margin: var(--header-height) auto 0;
+		margin: 0 auto 0;
 		height: 100%;
 		display: flex;
 		flex: 1;
@@ -112,7 +112,10 @@
 		text-align: right;
 	}
 
-	@media (min-width: 800px) {
+	@media (min-width: 768px) {
+		.post {
+			margin: var(--header-height) auto 0;
+		}
 		.post .post__cover,
 		.post .post__cover--none {
 			width: 100%;
