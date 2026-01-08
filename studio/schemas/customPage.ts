@@ -2,13 +2,10 @@ import {DocumentTextIcon} from '@sanity/icons'
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'aboutPage',
-  title: 'About Page',
+  name: 'customPage',
+  title: 'Custom Page',
   type: 'document',
   icon: DocumentTextIcon,
-  options: {
-    singleton: true,
-  },
   fields: [
     defineField({
       name: 'title',
@@ -16,10 +13,19 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+    }),
+    defineField({
       name: 'sections',
       title: 'Sections',
       type: 'array',
-      description: 'Assemble the About page with hero and text blocks in any order.',
+      description: 'Assemble a page with hero and text blocks in any order.',
       of: [
         defineArrayMember({type: 'hero', title: 'Hero Block'}),
         defineArrayMember({type: 'textBlock', title: 'Text Block'}),
@@ -38,7 +44,7 @@ export default defineType({
     },
     prepare({title}) {
       return {
-        title: title || 'About Page',
+        title: title || 'Custom Page',
       }
     },
   },

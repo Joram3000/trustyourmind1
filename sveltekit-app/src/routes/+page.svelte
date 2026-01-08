@@ -15,6 +15,13 @@
 	const { contactInfo } = data;
 </script>
 
+<svelte:head>
+	<title>{homePage.seo?.title ?? 'Trust Your Mind'}</title>
+	<meta name="description" content={homePage.seo?.description} />
+
+	<link rel="canonical" href={homePage.seo?.canonical} />
+</svelte:head>
+
 <section>
 	<HeroBlock data={homePage.hero} />
 

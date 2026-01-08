@@ -171,6 +171,13 @@
 		padding: 0.5rem;
 	}
 
+	.contact-form input::placeholder,
+	.contact-form textarea::placeholder,
+	.contact-form textarea {
+		font-family: var(--font-family-crimson);
+		font-size: 1rem;
+	}
+
 	button:hover {
 		scale: none;
 	}

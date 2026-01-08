@@ -2,8 +2,8 @@ import {DocumentTextIcon} from '@sanity/icons'
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'aboutPage',
-  title: 'About Page',
+  name: 'postsPage',
+  title: 'Posts Page',
   type: 'document',
   icon: DocumentTextIcon,
   options: {
@@ -16,14 +16,14 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'sections',
-      title: 'Sections',
+      name: 'posts',
+      title: 'Posts',
       type: 'array',
-      description: 'Assemble the About page with hero and text blocks in any order.',
       of: [
-        defineArrayMember({type: 'hero', title: 'Hero Block'}),
-        defineArrayMember({type: 'textBlock', title: 'Text Block'}),
-        defineArrayMember({type: 'imageGallery', title: 'Image Gallery'}),
+        defineArrayMember({
+          type: 'reference',
+          to: [{type: 'post'}],
+        }),
       ],
     }),
     defineField({
@@ -38,7 +38,7 @@ export default defineType({
     },
     prepare({title}) {
       return {
-        title: title || 'About Page',
+        title: title || 'Posts Page',
       }
     },
   },

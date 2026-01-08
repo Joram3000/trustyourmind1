@@ -2,8 +2,11 @@
 	import { urlFor } from '$lib/sanity/image';
 	import type { Hero } from '$lib/sanity/queries';
 	import Icon from './Icon.svelte';
+	import Popup from './Popup.svelte';
 
 	export let data: Hero;
+
+	let popupOpen = false;
 </script>
 
 <div class="container">
@@ -20,9 +23,28 @@
 				{data.excerpt}
 			</p>{/if}
 
-		{#if data.callToAction}<button>{data.callToAction.label} <Icon name={'ArrowRight'} /></button
+		{#if data.callToAction}
+			<a data-koalendar-widget href="https://koalendar.com/e/meet-with-prace-music">
+				<button>{data.callToAction.label} <Icon name={'ArrowRight'} /></button></a
 			>{/if}
+
+		{#if data.callToAction}
+			<button on:click={() => (popupOpen = true)}
+				>{data.callToAction.label} <Icon name={'ArrowRight'} /></button
+			>
+		{/if}
 	</div>
+
+	<Popup bind:open={popupOpen}>
+		<iframe
+			title="Schedule Appointment"
+			src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1ZOSR5MBVHL-tWejOhupJmBs9a4JNUUhwsNz-XlLvpJVWNQ62b3TjqcYNuJ9BR4nMy2_0Ekpbx?gv=true"
+			style="border: 0;"
+			width="100%"
+			height="600"
+			frameborder="0"
+		></iframe>
+	</Popup>
 </div>
 
 <style>
@@ -43,7 +65,6 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		opacity: 0.5;
 		background-image: linear-gradient(
 			to right,
 			hsl(25 15% 12% / 0.95),

@@ -3,12 +3,12 @@
 	import { page } from '$app/stores';
 	import LiveMode from '../components/LiveMode.svelte';
 	import { onMount } from 'svelte';
-	import type { ContactInfo } from '$lib/sanity/queries';
+	import type { ContactInfo, Header } from '$lib/sanity/queries';
 	import Footer from '../components/Footer.svelte';
-	import Header from '../components/Header.svelte';
+	import HeaderComponent from '../components/HeaderComponent.svelte';
 	let outlineEnabled = true;
 
-	export let data: { preview: boolean; contactInfo: ContactInfo | null };
+	export let data: { preview: boolean; contactInfo: ContactInfo | null; header: Header | null };
 
 	onMount(() => {
 		const handleKeydown = (e: KeyboardEvent) => {
@@ -40,7 +40,9 @@
 {/if}
 
 <div class="container">
-	<Header />
+	{#if data.header}
+		<HeaderComponent data={data.header} />
+	{/if}
 
 	<main>
 		<slot />
@@ -68,6 +70,13 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
+		margin-top: var(--header-height);
+	}
+
+	@media (min-width: 768px) {
+		main {
+			margin-top: 0;
+		}
 	}
 
 	.preview-toggle {

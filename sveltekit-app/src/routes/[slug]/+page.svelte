@@ -5,27 +5,27 @@
 
 	export let data: PageData;
 	const q = useQuery(data);
-	$: ({ data: aboutPage } = $q);
+	$: ({ data: customPage } = $q);
 </script>
 
 <svelte:head>
-	<title>{aboutPage.seo?.title ?? 'About Niko Malafek'}</title>
-	<meta name="description" content={aboutPage.seo?.description} />
+	<title>{customPage.seo?.title ?? 'Trust Your Mind'}</title>
+	<meta name="description" content={customPage.seo?.description} />
 
-	<link rel="canonical" href={aboutPage.seo?.canonical} />
+	<link rel="canonical" href={customPage.seo?.canonical} />
 </svelte:head>
 
 <section>
 	<div class="inner">
-		{#if aboutPage.title}
-			<h1>{aboutPage.title}</h1>
+		{#if customPage.title}
+			<h1>{customPage.title}</h1>
 		{/if}
 
-		{#if aboutPage.sections.length === 0}
+		{#if customPage.sections.length === 0}
 			<p>Sections unavailable.</p>
 		{:else}
 			<div class="sections">
-				<Sections data={aboutPage.sections} />
+				<Sections data={customPage.sections} />
 			</div>
 		{/if}
 	</div>
@@ -44,7 +44,6 @@
 	h1 {
 		text-align: center;
 		width: 100%;
-		/* margin-top: var(--header-height); */
 		padding: 1rem;
 	}
 

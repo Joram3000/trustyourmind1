@@ -1,0 +1,13 @@
+import { postsPageQuery as query, type PostsPage } from '$lib/sanity/queries';
+import type { PageServerLoad } from './$types';
+
+export const load: PageServerLoad = async (event) => {
+	const { loadQuery } = event.locals;
+
+	const [initial] = await Promise.all([loadQuery<PostsPage>(query)]);
+
+	return {
+		query,
+		options: { initial }
+	};
+};
