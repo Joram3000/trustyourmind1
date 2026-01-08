@@ -10,8 +10,19 @@ export const aboutPageQuery = groq`*[_type == "aboutPage"][0]`;
 
 export const customPageQuery = groq`*[_type == "customPage" && slug.current == $slug][0]`;
 export const postsQuery = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`;
-
 export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]`;
+export const postsPageQuery = groq`*[_type == "postsPage"][0]{
+	...,
+	posts[]->{
+		_id,
+		_type,
+		_createdAt,
+		title,
+		slug,
+		excerpt,
+		mainImage,
+	}
+}`;
 
 export interface Post {
 	_type: 'post';
@@ -20,8 +31,8 @@ export interface Post {
 	slug: Slug;
 	excerpt?: string;
 	mainImage?: ImageAsset;
-	body: PortableTextBlock[];
-	seo: SEO;
+	body?: PortableTextBlock[];
+	seo?: SEO;
 }
 
 export interface ContactInfo {
@@ -48,10 +59,11 @@ export interface CustomPage {
 	seo: SEO;
 }
 
-export interface PostPage {
-	_type: 'postPage';
-	title?: string;
+export interface PostsPage {
+	_type: 'postsPage';
+	title: string;
 	posts: Post[];
+	seo: SEO;
 }
 
 export interface HomePage {

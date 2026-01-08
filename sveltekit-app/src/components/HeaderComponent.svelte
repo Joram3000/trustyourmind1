@@ -89,7 +89,7 @@
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		padding: 0rem;
+		padding: 0;
 		border-radius: 0;
 	}
 
@@ -123,7 +123,7 @@
 		nav {
 			display: block;
 			flex-direction: row;
-			gap: 1rem;
+			gap: 3rem;
 			display: flex;
 		}
 

@@ -4,17 +4,15 @@
 	import Card from '../../components/Card.svelte';
 
 	export let data: PageData;
-
-	const postsQ = useQuery({ query: data.query, options: data.options });
-
-	$: posts = $postsQ.data;
+	const q = useQuery({ query: data.query, options: data.options });
+	$: ({ data: postsPage } = $q);
+	$: posts = postsPage?.posts ?? [];
 </script>
 
 <svelte:head>
 	<title>Posts by Niko Malafek</title>
-	<!-- <meta name="description" content={postsPage.seo?.description} /> -->
-
-	<!-- <link rel="canonical" href={postPage.seo?.canonical} /> -->
+	<meta name="description" content={postsPage.seo?.description} />
+	<link rel="canonical" href={postsPage.seo?.canonical} />
 </svelte:head>
 
 <section>
