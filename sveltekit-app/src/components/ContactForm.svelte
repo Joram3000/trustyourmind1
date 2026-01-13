@@ -7,10 +7,16 @@
 </script>
 
 <div class="contact-form">
-	{#if form?.success}
-		<p>Successfully submitted the form.</p>
-	{:else}
-		<form method="POST" action="?/contactForm" use:enhance>
+	<!-- keep the form in the DOM so its height is preserved,
+         show a success-panel absolutely on top when submitted -->
+	<div class="form-inner">
+		<form
+			method="POST"
+			action="?/contactForm"
+			use:enhance
+			aria-hidden={form?.success ? 'true' : 'false'}
+			class:hidden={form?.success}
+		>
 			<div>
 				{#if form?.errors?.name}<p class="error">{form.errors.name}</p>{/if}
 				<label>
@@ -42,14 +48,21 @@
 			<button type="submit">Submit</button>
 			<p>All inquiries are confidential and will be responded to within 24 hours.</p>
 		</form>
-	{/if}
+
+		<div
+			class="success-panel"
+			aria-hidden={form?.success ? 'false' : 'true'}
+			class:visible={form?.success}
+		>
+			<p class="success-message">Successfully submitted the form.</p>
+		</div>
+	</div>
 </div>
 
 <style>
 	.contact-form {
 		display: flex;
 		flex-direction: column;
-
 		gap: 0.5rem;
 		width: 100%;
 	}
@@ -62,11 +75,43 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+		transition: opacity 160ms ease;
+	}
+
+	/* keep form in flow but hide its visuals when submitted so container height is preserved */
+	.contact-form form.hidden,
+	.contact-form form[aria-hidden='true'] {
+		visibility: hidden;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	/* wrapper that preserves height because the form remains in the DOM */
+	.form-inner {
+		position: relative;
+	}
+
+	/* success panel is positioned on top of the preserved form area */
+	.success-panel {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		place-items: center;
+		justify-content: center;
+		padding: 1rem;
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 160ms ease;
+	}
+
+	.success-panel.visible,
+	.success-panel[aria-hidden='false'] {
+		opacity: 1;
+		pointer-events: auto;
 	}
 
 	.contact-form label {
 		display: flex;
-
 		gap: 1rem;
 	}
 
