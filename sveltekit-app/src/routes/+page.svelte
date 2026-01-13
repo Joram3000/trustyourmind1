@@ -8,7 +8,6 @@
 	import UspBlock from '../components/UspBlock.svelte';
 
 	export let data: PageData;
-	export let form;
 	const q = useQuery(data);
 
 	$: ({ data: homePage } = $q);
@@ -29,5 +28,5 @@
 
 	<ServicesBlock {homePage} />
 
-	<ContactBlock {homePage} {form} {contactInfo} />
+	<ContactBlock {homePage} {contactInfo} />
 </section>
