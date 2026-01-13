@@ -3,7 +3,7 @@
 	import Gallery from './Gallery.svelte';
 	import HeroBlock from './HeroBlock.svelte';
 	import TextBlock from './TextBlock.svelte';
-	import ContactFormComponent from './ContactFormComponent.svelte';
+	import ContactFormSection from './ContactFormSection.svelte';
 
 	export let data: Sections | undefined;
 	const sections = data ?? [];
@@ -18,7 +18,7 @@
 		{:else if section._type === 'imageGallery'}
 			<Gallery data={section} />
 		{:else if section._type === 'contactForm'}
-			<ContactFormComponent data={section} />
+			<ContactFormSection data={section} />
 		{:else}
 			<div>
 				<p>Unknown section type</p>
