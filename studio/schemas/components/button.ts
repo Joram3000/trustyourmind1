@@ -24,7 +24,6 @@ export const button = defineType({
       type: 'url',
       description: 'The link the button will navigate to when clicked.',
       validation: (Rule) => [
-        Rule.required().error('A URL is required for the button to function.'),
         Rule.uri({
           scheme: ['http', 'https', 'mailto', 'tel'],
         }).error('Please enter a valid URL starting with http, https, mailto, or tel.'),
