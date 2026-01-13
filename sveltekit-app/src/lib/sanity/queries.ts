@@ -101,7 +101,7 @@ export interface Card {
 	content: string;
 }
 
-export type Sections = (Hero | TextBlock | Gallery)[];
+export type Sections = (Hero | TextBlock | Gallery | ContactForm)[];
 
 export interface Hero {
 	_type: 'hero';
@@ -128,6 +128,13 @@ export interface TextBlock {
 	_key: string;
 	title?: string;
 	body: PortableTextBlock[];
+}
+
+export interface ContactForm {
+	_type: 'contactForm';
+	_key: string;
+	title: string;
+	subtitle?: string;
 }
 
 export interface SEO {

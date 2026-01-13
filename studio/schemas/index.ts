@@ -15,6 +15,7 @@ import customPage from './customPage'
 import seo from './components/seo'
 import header from './header'
 import postsPage from './postsPage'
+import contactForm from './components/contactForm'
 
 export const schemaTypes = [
   post,
@@ -31,6 +32,7 @@ export const schemaTypes = [
   postsPage,
   textBlockType,
   imageGallery,
+  contactForm,
   customPage,
   seo,
   header,
