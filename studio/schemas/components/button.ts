@@ -18,6 +18,25 @@ export const button = defineType({
         Rule.max(30).warning('Keep labels under 30 characters for readability.'),
       ],
     }),
+    defineField({
+      name: 'url',
+      title: 'URL',
+      type: 'url',
+      description: 'The link the button will navigate to when clicked.',
+      validation: (Rule) => [
+        Rule.required().error('A URL is required for the button to function.'),
+        Rule.uri({
+          scheme: ['http', 'https', 'mailto', 'tel'],
+        }).error('Please enter a valid URL starting with http, https, mailto, or tel.'),
+      ],
+    }),
+    defineField({
+      name: 'openInNewTab',
+      title: 'Open in New Tab',
+      type: 'boolean',
+      description: 'If enabled, the link will open in a new browser tab.',
+      initialValue: false,
+    }),
   ],
   preview: {
     select: {

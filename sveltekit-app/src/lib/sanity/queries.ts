@@ -91,7 +91,8 @@ export interface HomePage {
 
 export interface Button {
 	label: string;
-	// add URL
+	url: string;
+	openInNewTab?: boolean;
 }
 
 export interface Card {
