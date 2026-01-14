@@ -48,6 +48,7 @@
 		flex: 1;
 		flex-direction: column;
 		gap: 1rem;
+		padding: 0 1rem;
 	}
 
 	h1 {
