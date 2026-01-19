@@ -8,7 +8,7 @@
 
 <div class="container">
 	<div class="inner">
-		{#each data.images as image (image.asset._id)}
+		{#each data.images as image, i (i)}
 			<enhanced:img src={urlFor(image.asset).url()} alt={image.alt} />
 		{/each}
 	</div>

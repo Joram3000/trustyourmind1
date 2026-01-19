@@ -26,6 +26,7 @@ export const postsPageQuery = groq`*[_type == "postsPage"][0]{
 
 export interface SanityImage {
 	_type: 'image';
+	_id?: string;
 	asset: ImageAsset;
 	alt?: string;
 	hotspot?: { x: number; y: number; height: number; width: number };
@@ -113,6 +114,7 @@ export type Sections = (Hero | TextBlock | Gallery | ContactForm)[];
 
 export interface Hero {
 	_type: 'hero';
+	_id: string;
 	_key: string;
 	headline: string;
 	subheadline?: string;
@@ -123,12 +125,14 @@ export interface Hero {
 
 export interface Gallery {
 	_type: 'imageGallery';
+	_id: string;
 	_key: string;
 	images: SanityImage[];
 }
 
 export interface TextBlock {
 	_type: 'textBlock';
+	_id: string;
 	_key: string;
 	title?: string;
 	body: PortableTextBlock[];
@@ -136,6 +140,7 @@ export interface TextBlock {
 
 export interface ContactForm {
 	_type: 'contactForm';
+	_id: string;
 	_key: string;
 	title: string;
 	subtitle?: string;
