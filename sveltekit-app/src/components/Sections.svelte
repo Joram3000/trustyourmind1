@@ -10,7 +10,7 @@
 </script>
 
 <div class="container">
-	{#each sections as section (section._key)}
+	{#each sections as section, i (i)}
 		{#if section._type === 'hero'}
 			<HeroBlock data={section} />
 		{:else if section._type === 'textBlock'}
