@@ -3,15 +3,53 @@
 	import type { Hero } from '$lib/sanity/queries';
 	import Icon from './Icon.svelte';
 	import Popup from './Popup.svelte';
+	import { onMount } from 'svelte';
 
 	export let data: Hero;
 
 	let popupOpen = false;
+
+	let objectPosition = '50% 50%';
+
+	function calcObjectPosition() {
+		const hotspot = data.backgroundImage?.hotspot as { x?: number; y?: number } | undefined;
+		const x = typeof hotspot?.x === 'number' ? hotspot.x : 0.5;
+		let y = typeof hotspot?.y === 'number' ? hotspot.y : 0.5;
+
+		// clamp op small screens zodat hotspot niet uit beeld valt
+		if (typeof window !== 'undefined' && window.innerWidth <= 640) {
+			const min = 0.1;
+			const max = 0.9;
+			y = Math.min(max, Math.max(min, y));
+		}
+
+		objectPosition = `${x * 100}% ${y * 100}%`;
+	}
+
+	onMount(() => {
+		calcObjectPosition();
+		const onResize = () => calcObjectPosition();
+		window.addEventListener('resize', onResize);
+		return () => window.removeEventListener('resize', onResize);
+	});
+
+	$: calcObjectPosition(); // herbereken als data verandert
 </script>
 
 <div class="container">
 	{#if data.backgroundImage}
-		<img src={urlFor(data.backgroundImage).url()} alt="" class="background-image" />
+		<img
+			src={urlFor(data.backgroundImage)
+				.width(2000)
+				.height(1200) // kies passend
+				.fit('crop') // respecteert hotspot + crop
+				.auto('format')
+				.quality(90)
+				.url()}
+			alt=""
+			style="object-position: {objectPosition};"
+			class="background-image"
+		/>
 	{/if}
 	<div class="inner">
 		<h1>{data.headline}</h1>
@@ -48,7 +86,6 @@
 		<!-- end Google Calendar Appointment Scheduling -->
 	</Popup>
 </div>
-O
 
 <style>
 	.container {
