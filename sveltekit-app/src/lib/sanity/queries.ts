@@ -24,13 +24,21 @@ export const postsPageQuery = groq`*[_type == "postsPage"][0]{
 	}
 }`;
 
+export interface SanityImage {
+	_type: 'image';
+	asset: ImageAsset;
+	alt?: string;
+	hotspot?: { x: number; y: number; height: number; width: number };
+	crop?: { top: number; bottom: number; left: number; right: number };
+}
+
 export interface Post {
 	_type: 'post';
 	_createdAt: string;
 	title?: string;
 	slug: Slug;
 	excerpt?: string;
-	mainImage?: ImageAsset;
+	mainImage?: SanityImage;
 	body?: PortableTextBlock[];
 	seo?: SEO;
 }
@@ -91,7 +99,8 @@ export interface HomePage {
 
 export interface Button {
 	label: string;
-	// add URL
+	url: string;
+	openInNewTab?: boolean;
 }
 
 export interface Card {
@@ -100,7 +109,7 @@ export interface Card {
 	content: string;
 }
 
-export type Sections = (Hero | TextBlock | Gallery)[];
+export type Sections = (Hero | TextBlock | Gallery | ContactForm)[];
 
 export interface Hero {
 	_type: 'hero';
@@ -109,17 +118,13 @@ export interface Hero {
 	subheadline?: string;
 	excerpt?: string;
 	callToAction?: Button;
-	backgroundImage?: ImageAsset;
+	backgroundImage?: SanityImage;
 }
 
 export interface Gallery {
 	_type: 'imageGallery';
 	_key: string;
-	images: {
-		image: ImageAsset;
-		_key: string;
-		alt: string;
-	}[];
+	images: SanityImage[];
 }
 
 export interface TextBlock {
@@ -127,6 +132,13 @@ export interface TextBlock {
 	_key: string;
 	title?: string;
 	body: PortableTextBlock[];
+}
+
+export interface ContactForm {
+	_type: 'contactForm';
+	_key: string;
+	title: string;
+	subtitle?: string;
 }
 
 export interface SEO {

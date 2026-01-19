@@ -3,15 +3,48 @@
 	import type { Hero } from '$lib/sanity/queries';
 	import Icon from './Icon.svelte';
 	import Popup from './Popup.svelte';
+	import { onMount } from 'svelte';
 
 	export let data: Hero;
 
 	let popupOpen = false;
+
+	let objectPosition = '50% 50%';
+
+	function calcObjectPosition() {
+		const hotspot = data.backgroundImage?.hotspot as { x?: number; y?: number } | undefined;
+		const x = typeof hotspot?.x === 'number' ? hotspot.x : 0.5;
+		let y = typeof hotspot?.y === 'number' ? hotspot.y : 0.5;
+
+		// clamp op small screens zodat hotspot niet uit beeld valt
+		if (typeof window !== 'undefined' && window.innerWidth <= 640) {
+			const min = 0.1;
+			const max = 0.9;
+			y = Math.min(max, Math.max(min, y));
+		}
+
+		objectPosition = `${x * 100}% ${y * 100}%`;
+	}
+
+	onMount(() => {
+		calcObjectPosition();
+		const onResize = () => calcObjectPosition();
+		window.addEventListener('resize', onResize);
+		return () => window.removeEventListener('resize', onResize);
+	});
+
+	$: calcObjectPosition(); // herbereken als data verandert
 </script>
 
 <div class="container">
 	{#if data.backgroundImage}
-		<img src={urlFor(data.backgroundImage).url()} alt="" class="background-image" />
+		<enhanced:img
+			src={urlFor(data.backgroundImage.asset).fit('crop').auto('format').quality(90).url()}
+			alt={data.backgroundImage.alt || 'Background Image'}
+			style="object-position: {objectPosition};"
+			class="background-image"
+			sizes="min(1280px, 100vw)"
+		/>
 	{/if}
 	<div class="inner">
 		<h1>{data.headline}</h1>
@@ -25,25 +58,27 @@
 
 		{#if data.callToAction}
 			<a data-koalendar-widget href="https://koalendar.com/e/meet-with-prace-music">
-				<button>{data.callToAction.label} <Icon name={'ArrowRight'} /></button></a
+				<button>{data.callToAction.label} <Icon name={'ArrowRight'} />Koalendar</button></a
 			>{/if}
 
 		{#if data.callToAction}
 			<button on:click={() => (popupOpen = true)}
-				>{data.callToAction.label} <Icon name={'ArrowRight'} /></button
+				>{data.callToAction.label} <Icon name={'ArrowRight'} />Google</button
 			>
 		{/if}
 	</div>
 
 	<Popup bind:open={popupOpen}>
+		<!-- Google Calendar Appointment Scheduling begin -->
 		<iframe
 			title="Schedule Appointment"
-			src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1ZOSR5MBVHL-tWejOhupJmBs9a4JNUUhwsNz-XlLvpJVWNQ62b3TjqcYNuJ9BR4nMy2_0Ekpbx?gv=true"
-			style="border: 0;"
+			src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1wjKMF2UJrYWH-APTGox3KRgRrrOB_4wiYIZtT-sEcexHev0CnfBMX_bL7R9jTI8h3xNRABZEV?gv=true"
+			style="border: 0"
 			width="100%"
-			height="600"
+			height="100%"
 			frameborder="0"
 		></iframe>
+		<!-- end Google Calendar Appointment Scheduling -->
 	</Popup>
 </div>
 

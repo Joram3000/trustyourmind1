@@ -30,6 +30,7 @@ export default defineType({
         defineArrayMember({type: 'hero', title: 'Hero Block'}),
         defineArrayMember({type: 'textBlock', title: 'Text Block'}),
         defineArrayMember({type: 'imageGallery', title: 'Image Gallery'}),
+        defineArrayMember({type: 'contactForm', title: 'Contact Form'}),
       ],
     }),
     defineField({

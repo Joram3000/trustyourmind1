@@ -57,7 +57,7 @@
 		position: absolute;
 		width: clamp(500px, 80vw, 1100px);
 		max-width: calc(100% - 2rem);
-		max-height: calc(80vh - 2rem);
+		/* max-height: calc(80vh - 2rem); */
 		overflow: auto;
 		color: var(--black);
 		border-radius: 12px;

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import { urlFor } from '$lib/sanity/image';
 	import type { Gallery } from '$lib/sanity/queries';
 
@@ -7,8 +8,8 @@
 
 <div class="container">
 	<div class="inner">
-		{#each data.images as image (image._key)}
-			<img src={urlFor(image).url()} alt={image.alt} />
+		{#each data.images as image (image.asset._id)}
+			<enhanced:img src={urlFor(image.asset).url()} alt={image.alt} />
 		{/each}
 	</div>
 </div>
