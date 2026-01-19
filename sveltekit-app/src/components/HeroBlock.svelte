@@ -38,17 +38,12 @@
 
 <div class="container">
 	{#if data.backgroundImage}
-		<img
-			src={urlFor(data.backgroundImage)
-				.width(2000)
-				.height(1200) // kies passend
-				.fit('crop') // respecteert hotspot + crop
-				.auto('format')
-				.quality(90)
-				.url()}
-			alt=""
+		<enhanced:img
+			src={urlFor(data.backgroundImage.asset).fit('crop').auto('format').quality(90).url()}
+			alt={data.backgroundImage.alt || 'Background Image'}
 			style="object-position: {objectPosition};"
 			class="background-image"
+			sizes="min(1280px, 100vw)"
 		/>
 	{/if}
 	<div class="inner">
