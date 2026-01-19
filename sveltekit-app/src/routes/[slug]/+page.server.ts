@@ -1,5 +1,6 @@
 import { customPageQuery as query, type CustomPage } from '$lib/sanity/queries';
-import type { PageServerLoad } from './$types';
+import { contactFormAction } from '$lib/server/contactFormAction';
+import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
 	const { loadQuery } = event.locals;
@@ -16,4 +17,8 @@ export const load: PageServerLoad = async (event) => {
 		params,
 		options: { initial }
 	};
+};
+
+export const actions: Actions = {
+	contactForm: contactFormAction
 };
