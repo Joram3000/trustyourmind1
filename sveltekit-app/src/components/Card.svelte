@@ -8,9 +8,9 @@
 
 <a class="card" href={`/posts/${post.slug.current}`}>
 	{#if post.mainImage}
-		<img
+		<enhanced:img
 			class="card__cover"
-			src={urlFor(post.mainImage).width(500).height(300).url()}
+			src={urlFor(post.mainImage.asset).width(500).height(300).url()}
 			alt="Cover image for {post.title}"
 		/>
 	{:else}

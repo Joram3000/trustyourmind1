@@ -21,7 +21,7 @@
 <section>
 	<div class="post">
 		{#if post.mainImage}
-			<img
+			<enhanced:img
 				class="post__cover"
 				src={urlFor(post.mainImage).height(380).width(800).url()}
 				alt="Cover image for {post.title}"

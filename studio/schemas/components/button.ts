@@ -26,6 +26,7 @@ export const button = defineType({
       validation: (Rule) => [
         Rule.uri({
           scheme: ['http', 'https', 'mailto', 'tel'],
+          allowRelative: true,
         }).error('Please enter a valid URL starting with http, https, mailto, or tel.'),
       ],
     }),
