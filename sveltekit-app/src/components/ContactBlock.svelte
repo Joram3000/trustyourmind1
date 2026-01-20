@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { ContactInfo, HomePage } from '$lib/sanity/queries';
+	import { PortableText } from '@portabletext/svelte';
 	import ContactForm from './ContactForm.svelte';
 	import Icon from './Icon.svelte';
 
@@ -30,6 +31,13 @@
 						<Icon name="MapPin" color="var(--red)" size="1.5rem" />
 						<p>Address: {contactInfo.address}</p>
 					</div>
+
+					{#if homePage.contact.officeHours}
+						<div class="contact-item">
+							<Icon name="Clock" color="var(--red)" size="1.5rem" />
+							<PortableText value={homePage.contact.officeHours} />
+						</div>
+					{/if}
 				</div>
 			{/if}
 			<div class="contact-form">
@@ -73,7 +81,7 @@
 	.contact-form {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: 1rem;
 		width: 100%;
 	}
 
@@ -88,7 +96,6 @@
 	.contact-item {
 		display: flex;
 		flex-direction: row;
-		align-items: center;
 		gap: 1rem;
 	}
 

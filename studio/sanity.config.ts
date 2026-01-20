@@ -11,6 +11,7 @@ import {
   singletonTools,
 } from 'sanity-plugin-singleton-management'
 import {lucideIconPicker} from 'sanity-plugin-lucide-icon-picker'
+import {media} from 'sanity-plugin-media'
 
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID!
 const dataset = process.env.SANITY_STUDIO_DATASET!
@@ -43,6 +44,7 @@ export default defineConfig({
     visionTool(),
     singletonTools(),
     lucideIconPicker(),
+    media(),
   ],
   schema: {
     types: schemaTypes,

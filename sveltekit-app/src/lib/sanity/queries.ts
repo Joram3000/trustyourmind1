@@ -51,6 +51,7 @@ export interface ContactInfo {
 	phoneNumber: string;
 	address?: string;
 	kvk?: string;
+	officeHours: PortableTextBlock[];
 }
 
 export interface AboutPage {
