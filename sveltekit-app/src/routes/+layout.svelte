@@ -1,18 +1,19 @@
 <script lang="ts">
 	import { isPreviewing } from '@sanity/visual-editing/svelte';
 	import { page } from '$app/stores';
+	import { dev } from '$app/environment';
 	import LiveMode from '../components/LiveMode.svelte';
 	import { onMount, type ComponentType } from 'svelte';
 	import type { ContactInfo, Header } from '$lib/sanity/queries';
 	import Footer from '../components/Footer.svelte';
-	import HeaderComponent from '../components/HeaderComponent.svelte'
-	;
+	import HeaderComponent from '../components/HeaderComponent.svelte';
 	let outlineEnabled = true;
 	let VisualEditingComponent: ComponentType | null = null;
 
 	export let data: { preview: boolean; contactInfo: ContactInfo | null; header: Header | null };
 
 	onMount(() => {
+		if (!dev) return;
 		const handleKeydown = (e: KeyboardEvent) => {
 			if (e.shiftKey && e.key.toLowerCase() === 'o') {
 				e.preventDefault();
