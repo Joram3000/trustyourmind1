@@ -22,11 +22,12 @@
     "react-is": "^18.2.0",
     "sanity": "^4.22.0",
     "sanity-plugin-lucide-icon-picker": "^1.0.3",
+    "sanity-plugin-media": "^4.1.1",
     "sanity-plugin-singleton-management": "^1.0.4",
     "styled-components": "^6.1.15"
   },
   "devDependencies": {
-    "@sanity/cli": "^4.20.3",
+    "@sanity/cli": "^4.22.0",
     "@sanity/eslint-config-studio": "^3.0.1",
     "@types/node": "^18.19.23",
     "@types/react": "^18.3.3",
