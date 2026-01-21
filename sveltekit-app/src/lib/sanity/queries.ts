@@ -113,6 +113,11 @@ export interface Hero {
 	headline: string;
 	subheadline?: string;
 	excerpt?: string;
+	textColors?: {
+		headlineColor?: Color;
+		subheadlineColor?: Color;
+		excerptColor?: Color;
+	};
 	callToAction?: Button;
 	backgroundImage?: SanityImage;
 }
@@ -148,4 +153,10 @@ export interface SEO {
 
 export interface Header {
 	items: { label: string; link: string }[];
+}
+
+export interface Color {
+	_type: 'color';
+	hex: string;
+	rgb: { _type: 'rgbaColor'; r: number; g: number; b: number };
 }

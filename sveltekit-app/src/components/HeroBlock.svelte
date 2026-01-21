@@ -47,19 +47,19 @@
 		/>
 	{/if}
 	<div class="inner">
-		<h1>{data.headline}</h1>
+		<h1 style="color: {data.textColors?.headlineColor?.hex}">{data.headline}</h1>
 
-		{#if data.subheadline}<p class="subheadline">{data.subheadline}</p>{/if}
-
-		{#if data.excerpt}
-			<p class="excerpt">
-				{data.excerpt}
+		{#if data.subheadline}<p
+				class="subheadline"
+				style="color: {data.textColors?.subheadlineColor?.hex}	"
+			>
+				{data.subheadline}
 			</p>{/if}
 
-		<!-- {#if data.callToAction}
-			<a data-koalendar-widget href="https://koalendar.com/e/meet-with-prace-music">
-				<button>{data.callToAction.label} <Icon name={'ArrowRight'} />Koalendar</button></a
-			>{/if} -->
+		{#if data.excerpt}
+			<p class="excerpt" style="color: {data.textColors?.excerptColor?.hex}">
+				{data.excerpt}
+			</p>{/if}
 
 		{#if data.callToAction?.label}
 			<button on:click={() => (popupOpen = true)}

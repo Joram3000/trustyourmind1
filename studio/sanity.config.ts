@@ -2,7 +2,7 @@ import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {presentationTool} from 'sanity/presentation'
-
+import {colorInput} from '@sanity/color-input'
 import {schemaTypes} from './schemas'
 
 import {
@@ -45,6 +45,7 @@ export default defineConfig({
     singletonTools(),
     lucideIconPicker(),
     media(),
+    colorInput(),
   ],
   schema: {
     types: schemaTypes,
