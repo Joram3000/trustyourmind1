@@ -43,6 +43,7 @@ export interface ContactInfo {
 	phoneNumber: string;
 	address?: string;
 	kvk?: string;
+	NIP?: string;
 	officeHours: PortableTextBlock[];
 }
 
