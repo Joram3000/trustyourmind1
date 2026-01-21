@@ -1,6 +1,16 @@
 import {DesktopIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
+const colorList = [
+  '#101112',
+  '#efece7',
+  '#2d251f',
+  '#231e1a',
+  '#8a2830',
+  '#79242b',
+  'rgba(163, 156, 143, 1)',
+]
+
 export const hero = defineType({
   name: 'hero',
   title: 'Hero Section',
@@ -11,6 +21,7 @@ export const hero = defineType({
       name: 'headline',
       title: 'Headline',
       type: 'string',
+
       validation: (Rule) => Rule.required().error('Headline is required for the hero section.'),
     }),
     defineField({
@@ -23,6 +34,31 @@ export const hero = defineType({
       title: 'Excerpt',
       type: 'text',
       rows: 2,
+    }),
+    defineField({
+      name: 'textColors',
+      title: 'Text Colors',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'headlineColor',
+          title: 'Headline Color',
+          type: 'color',
+          options: {colorList},
+        }),
+        defineField({
+          name: 'subheadlineColor',
+          title: 'Subheadline Color',
+          type: 'color',
+          options: {colorList},
+        }),
+        defineField({
+          name: 'excerptColor',
+          title: 'Excerpt Color',
+          type: 'color',
+          options: {colorList},
+        }),
+      ],
     }),
     defineField({
       name: 'callToAction',
