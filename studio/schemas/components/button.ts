@@ -13,7 +13,6 @@ export const button = defineType({
       type: 'string',
       description: 'Text displayed on the button.',
       validation: (Rule) => [
-        Rule.required().error('Provide a label for the button.'),
         Rule.min(2).warning('Use at least two characters for clarity.'),
         Rule.max(30).warning('Keep labels under 30 characters for readability.'),
       ],

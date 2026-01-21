@@ -61,7 +61,7 @@
 				<button>{data.callToAction.label} <Icon name={'ArrowRight'} />Koalendar</button></a
 			>{/if} -->
 
-		{#if data.callToAction}
+		{#if data.callToAction?.label}
 			<button on:click={() => (popupOpen = true)}
 				>{data.callToAction.label} <Icon name={'ArrowRight'} /></button
 			>
