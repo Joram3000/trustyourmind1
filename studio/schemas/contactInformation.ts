@@ -37,6 +37,12 @@ export default defineType({
       name: 'kvk',
       title: 'KVK (optional)',
       type: 'string',
+      validation: (Rule) => Rule.min(2).max(20),
+    }),
+    defineField({
+      name: 'NIP',
+      title: 'NIP (optional)',
+      type: 'string',
       validation: (Rule) => Rule.min(8).max(20),
     }),
   ],
