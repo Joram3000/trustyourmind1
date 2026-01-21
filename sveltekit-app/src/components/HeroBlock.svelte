@@ -56,30 +56,30 @@
 				{data.excerpt}
 			</p>{/if}
 
-		{#if data.callToAction}
+		<!-- {#if data.callToAction}
 			<a data-koalendar-widget href="https://koalendar.com/e/meet-with-prace-music">
 				<button>{data.callToAction.label} <Icon name={'ArrowRight'} />Koalendar</button></a
-			>{/if}
+			>{/if} -->
 
 		{#if data.callToAction}
 			<button on:click={() => (popupOpen = true)}
-				>{data.callToAction.label} <Icon name={'ArrowRight'} />Google</button
+				>{data.callToAction.label} <Icon name={'ArrowRight'} /></button
 			>
+
+			<Popup bind:open={popupOpen}>
+				<!-- Google Calendar Appointment Scheduling begin -->
+				<iframe
+					title="Schedule Appointment"
+					src={data.callToAction.url}
+					style="border: 0"
+					width="100%"
+					height="100%"
+					frameborder="0"
+				></iframe>
+				<!-- end Google Calendar Appointment Scheduling -->
+			</Popup>
 		{/if}
 	</div>
-
-	<Popup bind:open={popupOpen}>
-		<!-- Google Calendar Appointment Scheduling begin -->
-		<iframe
-			title="Schedule Appointment"
-			src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1wjKMF2UJrYWH-APTGox3KRgRrrOB_4wiYIZtT-sEcexHev0CnfBMX_bL7R9jTI8h3xNRABZEV?gv=true"
-			style="border: 0"
-			width="100%"
-			height="100%"
-			frameborder="0"
-		></iframe>
-		<!-- end Google Calendar Appointment Scheduling -->
-	</Popup>
 </div>
 
 <style>
