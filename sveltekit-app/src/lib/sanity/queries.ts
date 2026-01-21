@@ -1,5 +1,5 @@
 import type { PortableTextBlock } from '@portabletext/types';
-import type { ImageAsset, Slug } from '@sanity/types';
+import type { ImageAsset, Slug, Image } from '@sanity/types';
 import groq from 'groq';
 
 export const contactInfoQuery = groq`*[_type == "contactInformation"][0]`;
@@ -23,15 +23,7 @@ export const postsPageQuery = groq`*[_type == "postsPage"][0]{
 		mainImage,
 	}
 }`;
-
-export interface SanityImage {
-	_type: 'image';
-	_id?: string;
-	asset: ImageAsset;
-	alt?: string;
-	hotspot?: { x: number; y: number; height: number; width: number };
-	crop?: { top: number; bottom: number; left: number; right: number };
-}
+export type SanityImage = Image & { alt?: string; asset: ImageAsset };
 
 export interface Post {
 	_type: 'post';
