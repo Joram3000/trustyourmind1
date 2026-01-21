@@ -5,10 +5,13 @@
 </script>
 
 <footer class="container">
-	<div class="inner">
+	<div class="inner left">
 		<p>{data.name}</p>
-		<p>Email: {data.email}</p>
-		<p>Phone: {data.phoneNumber}</p>
+		<a href={`mailto:${data.email}`}>Email: {data.email}</a>
+		<a href={`tel:${data.phoneNumber}`}>Phone: {data.phoneNumber}</a>
+	</div>
+	<div class="right">
+		<a href="/disclaimer">Disclaimer</a>
 	</div>
 </footer>
 
@@ -17,18 +20,39 @@
 		background-color: var(--darkbrown);
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-end;
 		justify-content: center;
 		margin: 0 auto;
 		width: 100%;
+		padding: 1rem;
+		max-width: var(--max-width-1);
 	}
 
 	.inner {
-		max-width: var(--max-width-1);
-		padding: 1rem;
 		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.left,
+	.right {
+		flex: 1;
+	}
+
+	.right {
+		text-align: right;
+	}
+
+	p,
+	a {
+		font-weight: 500;
 	}
 
 	@media (min-width: 768px) {
+		.container {
+			flex-direction: row;
+			padding: 1rem 0;
+		}
 	}
 </style>

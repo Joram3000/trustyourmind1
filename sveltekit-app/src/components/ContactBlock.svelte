@@ -27,10 +27,13 @@
 						<Icon name="mail" color="var(--red)" size="1.5rem" />
 						<a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
 					</div>
-					<div class="contact-item">
-						<Icon name="MapPin" color="var(--red)" size="1.5rem" />
-						<p>Address: {contactInfo.address}</p>
-					</div>
+
+					{#if contactInfo.address}
+						<div class="contact-item">
+							<Icon name="MapPin" color="var(--red)" size="1.5rem" />
+							<p>Address: {contactInfo.address}</p>
+						</div>
+					{/if}
 
 					{#if homePage.contact.officeHours}
 						<div class="contact-item">
@@ -54,7 +57,6 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 1rem;
 		padding-block: var(--padding-block);
 	}
 
