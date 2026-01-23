@@ -23,7 +23,7 @@ export const postsPageQuery = groq`*[_type == "postsPage"][0]{
 		mainImage,
 	}
 }`;
-export type SanityImage = Image & { alt?: string; asset: ImageAsset };
+export type SanityImage = Image & { alt?: string; asset: ImageAsset; sizeWidth?: number };
 
 export interface Post {
 	_type: 'post';
@@ -43,7 +43,7 @@ export interface ContactInfo {
 	phoneNumber: string;
 	address?: string;
 	kvk?: string;
-	NIP?: string;
+	nip?: string;
 	officeHours: PortableTextBlock[];
 }
 
@@ -118,6 +118,7 @@ export interface Hero {
 		subheadlineColor?: Color;
 		excerptColor?: Color;
 	};
+	logo?: SanityImage;
 	callToAction?: Button;
 	backgroundImage?: SanityImage;
 }

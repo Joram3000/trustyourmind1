@@ -24,9 +24,9 @@
 		{#if post.excerpt}
 			<p class="card__excerpt">{post.excerpt}</p>
 		{/if}
-		<p class="card__date">
+		<!-- <p class="card__date">
 			{formatDate(post._createdAt)}
-		</p>
+		</p> -->
 	</div>
 </a>
 
@@ -42,8 +42,12 @@
 	.card .card__container {
 		display: flex;
 		flex-direction: column;
-		flex: 1;
+		/* flex: 1; */
 		justify-content: space-between;
+	}
+
+	.card__title {
+		font-size: 2rem;
 	}
 
 	.card .card__cover {
@@ -67,13 +71,13 @@
 		margin-top: 0;
 	}
 
-	.card .card__date {
+	/* .card .card__date {
 		font-weight: 600;
 		font-family: var(--font-family-sans);
 		font-size: var(--font-size-1);
 		margin-top: calc(var(----space-4) + 7);
 		text-align: right;
-	}
+	} */
 
 	.card:hover .card__title {
 		opacity: 0.8;

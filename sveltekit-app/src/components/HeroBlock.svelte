@@ -16,7 +16,6 @@
 		const x = typeof hotspot?.x === 'number' ? hotspot.x : 0.5;
 		let y = typeof hotspot?.y === 'number' ? hotspot.y : 0.5;
 
-		// clamp op small screens zodat hotspot niet uit beeld valt
 		if (typeof window !== 'undefined' && window.innerWidth <= 640) {
 			const min = 0.1;
 			const max = 0.9;
@@ -33,13 +32,13 @@
 		return () => window.removeEventListener('resize', onResize);
 	});
 
-	$: calcObjectPosition(); // herbereken als data verandert
+	$: calcObjectPosition();
 </script>
 
 <div class="container">
 	{#if data.backgroundImage}
 		<enhanced:img
-			src={urlFor(data.backgroundImage.asset).fit('crop').auto('format').quality(90).url()}
+			src={urlFor(data.backgroundImage.asset).fit('crop').auto('format').url()}
 			alt={data.backgroundImage.alt || 'Background Image'}
 			style="object-position: {objectPosition};"
 			class="background-image"
@@ -47,6 +46,18 @@
 		/>
 	{/if}
 	<div class="inner">
+		{#if data.logo}
+			<enhanced:img
+				class="logo"
+				src={urlFor(data.logo.asset)
+					.fit('max')
+					.width(data.logo?.sizeWidth ?? 100)
+					.auto('format')
+					.url()}
+				alt={data.logo.alt || 'Logo Trust Your Mind'}
+			/>
+		{/if}
+
 		<h1 style="color: {data.textColors?.headlineColor?.hex}">{data.headline}</h1>
 
 		{#if data.subheadline}<p
@@ -117,6 +128,7 @@
 		max-width: var(--max-width-1);
 		padding: 1rem;
 		z-index: 1;
+		width: 100%;
 	}
 
 	.subheadline {
