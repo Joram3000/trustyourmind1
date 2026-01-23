@@ -18,6 +18,26 @@ export const hero = defineType({
   icon: DesktopIcon,
   fields: [
     defineField({
+      name: 'logo',
+      title: 'Logo',
+      type: 'image',
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+          description: 'Important for SEO and accessibility.',
+          validation: (Rule) => Rule.required(),
+        },
+        {
+          name: 'sizeWidth',
+          title: 'Size Width (px)',
+          type: 'number',
+          description: 'width of the logo in pixels',
+        },
+      ],
+    }),
+    defineField({
       name: 'headline',
       title: 'Headline',
       type: 'string',

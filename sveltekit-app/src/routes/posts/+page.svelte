@@ -45,7 +45,7 @@
 		margin: 0 auto 0;
 		height: 100%;
 		display: flex;
-		flex: 1;
+		/* flex: 1; */
 		flex-direction: column;
 		gap: 1rem;
 		padding: 0 1rem;

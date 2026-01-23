@@ -9,6 +9,12 @@
 		<p>{data.name}</p>
 		<a href={`mailto:${data.email}`}>Email: {data.email}</a>
 		<a href={`tel:${data.phoneNumber}`}>Phone: {data.phoneNumber}</a>
+		{#if data.kvk}
+			<p>KVK: {data.kvk}</p>
+		{/if}
+		{#if data.nip}
+			<p>NIP: {data.nip}</p>
+		{/if}
 	</div>
 	<div class="right">
 		<a href="/disclaimer">Disclaimer</a>

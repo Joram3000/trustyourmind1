@@ -40,10 +40,10 @@ export default defineType({
       validation: (Rule) => Rule.min(2).max(20),
     }),
     defineField({
-      name: 'NIP',
+      name: 'nip',
       title: 'NIP (optional)',
       type: 'string',
-      validation: (Rule) => Rule.min(8).max(20),
+      validation: (Rule) => Rule.min(2).max(20),
     }),
   ],
   preview: {

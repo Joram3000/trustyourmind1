@@ -34,9 +34,9 @@
 			{#if post.excerpt}
 				<p class="post__excerpt">{post.excerpt}</p>
 			{/if}
-			<p class="post__date">
+			<!-- <p class="post__date">
 				{formatDate(post._createdAt)}
-			</p>
+			</p> -->
 			{#if post.body}
 				<div class="post__content">
 					<PortableText components={{}} value={post.body} />
@@ -84,8 +84,14 @@
 		padding: 0 1rem;
 	}
 
+	.post__container,
+	.post__content {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
 	:global(.post .post__content blockquote) {
-		/* /border-left: 5px solid var(--black); */
 		padding: 1rem;
 	}
 
