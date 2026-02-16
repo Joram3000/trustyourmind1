@@ -83,11 +83,6 @@ button:active {
 	font-size: 1.125rem;
 }
 
-.card:hover {
-	border: 1px solid rgb(89, 40, 44);
-	scale: 1.01;
-}
-
 h1 {
 	font-family: var(--font-family-display);
 	font-weight: 700;
