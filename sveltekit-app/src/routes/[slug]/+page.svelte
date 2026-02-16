@@ -4,29 +4,28 @@
 	import Sections from '../../components/Sections.svelte';
 
 	export let data: PageData;
-	const q = useQuery(data);
+
+	let q;
+	let customPage;
+
+	$: q = useQuery(data);
 	$: ({ data: customPage } = $q);
 </script>
 
-<svelte:head>
-	<title>{customPage.seo?.title ?? 'Trust Your Mind'}</title>
-	<meta name="description" content={customPage.seo?.description} />
-
-	<link rel="canonical" href={customPage.seo?.canonical} />
-</svelte:head>
-
 <section>
 	<div class="inner">
-		{#if customPage.title}
+		{#if customPage?.title}
 			<h1>{customPage.title}</h1>
 		{/if}
 
-		{#if customPage.sections.length === 0}
+		{#if !customPage || customPage.sections.length === 0}
 			<p>Sections unavailable.</p>
 		{:else}
-			<div class="sections">
-				<Sections data={customPage.sections} />
-			</div>
+			{#key data.params.slug}
+				<div class="sections">
+					<Sections data={customPage.sections} />
+				</div>
+			{/key}
 		{/if}
 	</div>
 </section>
