@@ -37,7 +37,6 @@
 		display: flex;
 		justify-content: center;
 		flex: 1;
-		padding-block-end: var(--padding-block);
 	}
 
 	h1 {
@@ -53,6 +52,7 @@
 	@media (min-width: 768px) {
 		.inner {
 			margin: var(--header-height) auto 0;
+			/* padding-block-end: var(--padding-block); */
 		}
 	}
 </style>

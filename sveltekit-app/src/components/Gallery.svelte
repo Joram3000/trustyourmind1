@@ -9,7 +9,7 @@
 <div class="container">
 	<div class="inner">
 		{#each data.images as image, i (i)}
-			<enhanced:img src={urlFor(image.asset).url()} alt={image.alt} />
+			<enhanced:img class="gallery-image" src={urlFor(image.asset).url()} alt={image.alt} />
 		{/each}
 	</div>
 </div>
@@ -28,7 +28,7 @@
 		flex-wrap: wrap;
 	}
 
-	img {
+	.gallery-image {
 		width: 100%;
 		min-width: 150px; /* Ensure images don't get too small */
 		object-fit: cover;
