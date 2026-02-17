@@ -35,6 +35,9 @@
 	.inner {
 		max-width: var(--max-width-1);
 		text-align: center;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
 	}
 
 	.inner p {

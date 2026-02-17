@@ -33,7 +33,7 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: 2rem;
 		width: 100%;
 	}
 </style>
