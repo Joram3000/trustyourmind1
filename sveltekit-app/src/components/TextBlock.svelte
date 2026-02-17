@@ -17,9 +17,13 @@
 	.container {
 		max-width: var(--max-width-1);
 		margin: 0 auto;
+		padding: 1rem;
+		padding-block: var(--padding-block);
 	}
 
 	.inner {
-		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
 	}
 </style>

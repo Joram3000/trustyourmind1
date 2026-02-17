@@ -57,6 +57,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		padding: 1rem;
 		padding-block: var(--padding-block);
 	}
 
@@ -64,6 +65,9 @@
 		max-width: var(--max-width-1);
 		width: 100%;
 		text-align: center;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
 	}
 
 	.inner h2 {
@@ -75,7 +79,7 @@
 		flex-direction: row;
 		width: 100%;
 		text-align: left;
-		gap: 1rem;
+		gap: 2rem;
 		padding: 1rem 0;
 	}
 

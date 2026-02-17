@@ -38,6 +38,7 @@
 		max-width: var(--max-width-1);
 		display: flex;
 		flex-direction: column;
+		gap: 2rem;
 	}
 
 	.inner h2 {

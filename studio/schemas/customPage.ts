@@ -42,10 +42,11 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
+      slug: 'slug.current',
     },
-    prepare({title}) {
+    prepare({title, slug}) {
       return {
-        title: title || 'Custom Page',
+        title: title || slug,
       }
     },
   },

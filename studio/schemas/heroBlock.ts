@@ -16,18 +16,65 @@ export const hero = defineType({
   title: 'Hero Section',
   type: 'object',
   icon: DesktopIcon,
+
+  // Gebruik fieldsets om velden visueel te groeperen in de editor.
+  fieldsets: [
+    {name: 'content', title: 'Content'},
+    {name: 'media', title: 'Media'},
+    {name: 'styles', title: 'Styles'},
+    {name: 'cta', title: 'Call to action'},
+  ],
+
   fields: [
     defineField({
-      name: 'logo',
-      title: 'Logo',
+      name: 'backgroundImage',
+      title: 'Background Image',
       type: 'image',
+      fieldset: 'media',
+      options: {
+        hotspot: true,
+      },
       fields: [
         {
           name: 'alt',
           type: 'string',
           title: 'Alternative text',
           description: 'Important for SEO and accessibility.',
-          validation: (Rule) => Rule.required(),
+          validation: (Rule) =>
+            Rule.custom((alt, context) =>
+              !context?.parent || !context.parent.asset
+                ? true
+                : alt && alt.length > 0
+                  ? true
+                  : 'Alternative text is required when a background image is present',
+            ),
+        },
+      ],
+    }),
+    // logo is optioneel: geen Rule.required() op het parent-veld
+    defineField({
+      name: 'logo',
+      title: 'Logo',
+      type: 'image',
+      fieldset: 'media',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+          description: 'Important for SEO and accessibility.',
+          // alleen verplicht wanneer er daadwerkelijk een afbeelding is geüpload
+          validation: (Rule) =>
+            Rule.custom((alt, context) =>
+              !context?.parent || !context.parent.asset
+                ? true
+                : alt && alt.length > 0
+                  ? true
+                  : 'Alternative text is required when a logo is present',
+            ),
         },
         {
           name: 'sizeWidth',
@@ -37,28 +84,34 @@ export const hero = defineType({
         },
       ],
     }),
+
     defineField({
       name: 'headline',
       title: 'Headline',
       type: 'string',
-
-      validation: (Rule) => Rule.required().error('Headline is required for the hero section.'),
+      fieldset: 'content',
+      // optioneel: verwijder Rule.required() om optioneel te maken.
+      validation: (Rule) => [Rule.max(140).warning('Houd de headline kort (max 140 tekens).')],
     }),
     defineField({
       name: 'subheadline',
       title: 'Subheadline',
       type: 'string',
+      fieldset: 'content',
     }),
     defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
       rows: 2,
+      fieldset: 'content',
     }),
+
     defineField({
       name: 'textColors',
       title: 'Text Colors',
       type: 'object',
+      fieldset: 'styles',
       fields: [
         defineField({
           name: 'headlineColor',
@@ -80,28 +133,13 @@ export const hero = defineType({
         }),
       ],
     }),
+
+    // CTA optioneel (geen required)
     defineField({
       name: 'callToAction',
-      title: 'Call to Action',
+      title: 'Call to Action Button',
       type: 'button',
-    }),
-
-    defineField({
-      name: 'backgroundImage',
-      title: 'Background Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative text',
-          description: 'Important for SEO and accessibility.',
-          validation: (Rule) => Rule.required(),
-        },
-      ],
+      fieldset: 'cta',
     }),
   ],
   preview: {
