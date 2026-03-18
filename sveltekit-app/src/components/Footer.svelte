@@ -17,6 +17,9 @@
 		{/if}
 	</div>
 	<div class="right">
+		<a href="https://nip.nl/" target="_blank" rel="noopener noreferrer">
+			<img src="/NIPlogo.webp" alt="nip-logo" width="80" height="auto" />
+		</a>
 		<a href="/disclaimer">Disclaimer</a>
 	</div>
 </footer>
@@ -26,19 +29,19 @@
 		background-color: var(--darkbrown);
 		display: flex;
 		flex-direction: column;
-		align-items: flex-end;
 		justify-content: center;
 		margin: 0 auto;
 		width: 100%;
 		padding: 1rem;
 		max-width: var(--max-width-1);
+		gap: 1rem;
 	}
 
 	.inner {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		gap: 0.25rem;
+		gap: 0.5rem;
 	}
 
 	.left,
@@ -48,6 +51,9 @@
 
 	.right {
 		text-align: right;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
 	}
 
 	p,
@@ -59,6 +65,11 @@
 		.container {
 			flex-direction: row;
 			padding: 1rem 0;
+		}
+
+		.right {
+			flex-direction: column;
+			align-items: flex-end;
 		}
 	}
 </style>
